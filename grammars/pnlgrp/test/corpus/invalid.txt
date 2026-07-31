@@ -1,0 +1,15 @@
+==================
+Mismatched closing tag
+==================
+
+:panel.Main
+:emenu.
+
+---
+
+(source_file
+  (ERROR
+    (start_tag
+      name: (tag_name))
+    (text)
+    (tag_name)))

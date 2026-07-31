@@ -12,6 +12,7 @@
     "generate:bnd": "tree-sitter generate --abi 15 --output grammars/bnd/src grammars/bnd/grammar.js",
     "generate:mi": "tree-sitter generate --abi 15 --output grammars/mi/src grammars/mi/grammar.js",
     "generate:cmd": "tree-sitter generate --abi 15 --output grammars/cmd/src grammars/cmd/grammar.js",
+    "generate:pnlgrp": "tree-sitter generate --abi 15 --output grammars/pnlgrp/src grammars/pnlgrp/grammar.js",
     "demo:nvim": "bash scripts/nvim.sh dds-pf",
     "demo:nvim:pf": "bash scripts/nvim.sh dds-pf",
     "demo:nvim:lf": "bash scripts/nvim.sh dds-lf",
@@ -22,6 +23,7 @@
     "demo:nvim:bnd": "bash scripts/nvim.sh bnd",
     "demo:nvim:mi": "bash scripts/nvim.sh mi",
     "demo:nvim:cmd": "bash scripts/nvim.sh cmd",
+    "demo:nvim:pnlgrp": "bash scripts/nvim.sh pnlgrp",
     "test:dds-pf": "tree-sitter test -p grammars/dds/pf",
     "test:dds-lf": "tree-sitter test -p grammars/dds/lf",
     "test:dds-icff": "tree-sitter test -p grammars/dds/icff",
@@ -31,6 +33,7 @@
     "test:bnd": "tree-sitter test -p grammars/bnd",
     "test:mi": "tree-sitter test -p grammars/mi",
     "test:cmd": "tree-sitter test -p grammars/cmd",
+    "test:pnlgrp": "tree-sitter test -p grammars/pnlgrp",
     "test:fixtures:dds-pf": "node scripts/test-fixtures.mjs dds-pf",
     "test:fixtures:dds-lf": "node scripts/test-fixtures.mjs dds-lf",
     "test:fixtures:dds-icff": "node scripts/test-fixtures.mjs dds-icff",
@@ -40,6 +43,7 @@
     "test:fixtures:bnd": "node scripts/test-fixtures.mjs bnd",
     "test:fixtures:mi": "node scripts/test-fixtures.mjs mi",
     "test:fixtures:cmd": "node scripts/test-fixtures.mjs cmd",
+    "test:fixtures:pnlgrp": "node scripts/test-fixtures.mjs pnlgrp",
     "test:queries:dds-pf": "tree-sitter query --quiet -p grammars/dds/pf grammars/dds/pf/queries/highlights.scm fixtures/dds-pf/alt-ext.dds",
     "test:queries:dds-lf": "tree-sitter query --quiet -p grammars/dds/lf grammars/dds/lf/queries/highlights.scm fixtures/dds-lf/orders.lf",
     "test:queries:dds-icff": "tree-sitter query --quiet -p grammars/dds/icff grammars/dds/icff/queries/highlights.scm fixtures/dds-icff/orders.icff",
@@ -50,8 +54,9 @@
     "test:queries:bnd": "tree-sitter query --quiet -p grammars/bnd grammars/bnd/queries/highlights.scm fixtures/bnd/servicepgm.bnd && tree-sitter query --quiet -p grammars/bnd grammars/bnd/queries/folds.scm fixtures/bnd/servicepgm.bnd",
     "test:queries:mi": "tree-sitter query --quiet -p grammars/mi grammars/mi/queries/highlights.scm fixtures/mi/program.mi && tree-sitter query --quiet -p grammars/mi grammars/mi/queries/folds.scm fixtures/mi/program.mi",
     "test:queries:cmd": "tree-sitter query --quiet -p grammars/cmd grammars/cmd/queries/highlights.scm fixtures/cmd/command.cmd && tree-sitter query --quiet -p grammars/cmd grammars/cmd/queries/folds.scm fixtures/cmd/command.cmd && tree-sitter query --quiet -p grammars/cmd grammars/cmd/queries/indents.scm fixtures/cmd/command.cmd",
-    "check:generated": "npm run generate:dds && npm run generate:cl && npm run generate:bnd && npm run generate:mi && npm run generate:cmd && git diff --exit-code -- grammars/dds/pf/src grammars/dds/lf/src grammars/dds/icff/src grammars/dds/dspf/src grammars/dds/prtf/src grammars/cl/src grammars/bnd/src grammars/mi/src grammars/cmd/src",
-    "test": "npm run test:dds-pf && npm run test:fixtures:dds-pf && npm run test:dds-lf && npm run test:fixtures:dds-lf && npm run test:dds-icff && npm run test:fixtures:dds-icff && npm run test:dds-dspf && npm run test:fixtures:dds-dspf && npm run test:dds-prtf && npm run test:fixtures:dds-prtf && npm run test:queries:dds && npm run test:cl && npm run test:fixtures:cl && npm run test:queries:cl && npm run test:bnd && npm run test:fixtures:bnd && npm run test:queries:bnd && npm run test:mi && npm run test:fixtures:mi && npm run test:queries:mi && npm run test:cmd && npm run test:fixtures:cmd && npm run test:queries:cmd"
+    "test:queries:pnlgrp": "tree-sitter query --quiet -p grammars/pnlgrp grammars/pnlgrp/queries/highlights.scm fixtures/pnlgrp/panel.pnlgrp && tree-sitter query --quiet -p grammars/pnlgrp grammars/pnlgrp/queries/folds.scm fixtures/pnlgrp/panel.pnlgrp && tree-sitter query --quiet -p grammars/pnlgrp grammars/pnlgrp/queries/indents.scm fixtures/pnlgrp/panel.pnlgrp && tree-sitter query --quiet -p grammars/pnlgrp grammars/pnlgrp/queries/textobjects.scm fixtures/pnlgrp/panel.pnlgrp",
+    "check:generated": "npm run generate:dds && npm run generate:cl && npm run generate:bnd && npm run generate:mi && npm run generate:cmd && npm run generate:pnlgrp && git diff --exit-code -- grammars/dds/pf/src grammars/dds/lf/src grammars/dds/icff/src grammars/dds/dspf/src grammars/dds/prtf/src grammars/cl/src grammars/bnd/src grammars/mi/src grammars/cmd/src grammars/pnlgrp/src",
+    "test": "npm run test:dds-pf && npm run test:fixtures:dds-pf && npm run test:dds-lf && npm run test:fixtures:dds-lf && npm run test:dds-icff && npm run test:fixtures:dds-icff && npm run test:dds-dspf && npm run test:fixtures:dds-dspf && npm run test:dds-prtf && npm run test:fixtures:dds-prtf && npm run test:queries:dds && npm run test:cl && npm run test:fixtures:cl && npm run test:queries:cl && npm run test:bnd && npm run test:fixtures:bnd && npm run test:queries:bnd && npm run test:mi && npm run test:fixtures:mi && npm run test:queries:mi && npm run test:cmd && npm run test:fixtures:cmd && npm run test:queries:cmd && npm run test:pnlgrp && npm run test:fixtures:pnlgrp && npm run test:queries:pnlgrp"
   },
   "devDependencies": {
     "tree-sitter-cli": "0.26.11"

@@ -1,0 +1,43 @@
+==================
+Nested paired tags
+==================
+
+:pnlgrp.
+:panel name=main.Main panel
+:menu depth='*'.
+:menui option=1.Display
+:emenu.
+:epanel.
+:epnlgrp.
+
+---
+
+(source_file
+  (element
+    open: (start_tag
+      name: (tag_name))
+    (element
+      open: (start_tag
+        name: (tag_name)
+          attribute: (attribute
+            name: (attribute_name)
+            value: (bare_value)))
+      (text)
+      (element
+        open: (start_tag
+          name: (tag_name)
+          attribute: (attribute
+            name: (attribute_name)
+            value: (quoted_value)))
+        (tag
+          name: (tag_name)
+          attribute: (attribute
+            name: (attribute_name)
+            value: (bare_value)))
+        (text)
+        close: (end_tag
+          name: (tag_name)))
+      close: (end_tag
+        name: (tag_name)))
+    close: (end_tag
+      name: (tag_name))))

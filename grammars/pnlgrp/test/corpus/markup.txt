@@ -1,0 +1,19 @@
+==================
+Attributes, entities, comments, and imbed
+==================
+
+.* comment
+:p.Use &amp. and &msg(USR0001,USRMSG).
+.im COMMONPG
+
+---
+
+(source_file
+  (comment)
+  (tag
+    name: (tag_name))
+  (text)
+  (entity)
+  (text)
+  (entity)
+  (imbed_directive))

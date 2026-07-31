@@ -1,0 +1,30 @@
+==================
+Inline phrase nesting
+==================
+
+:p.See :CIT.Application Display Programming:ECIT. now.
+:p.The :HP2.order number:EHP2. is required.
+
+---
+
+(source_file
+  (tag
+    name: (tag_name))
+  (text)
+  (element
+    open: (start_tag
+      name: (tag_name))
+    (text)
+    close: (end_tag
+      name: (tag_name)))
+  (text)
+  (tag
+    name: (tag_name))
+  (text)
+  (element
+    open: (start_tag
+      name: (tag_name))
+    (text)
+    close: (end_tag
+      name: (tag_name)))
+  (text))

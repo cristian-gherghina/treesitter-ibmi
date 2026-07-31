@@ -77,6 +77,16 @@
       "highlights": "grammars/cmd/queries/highlights.scm",
       "folds": "grammars/cmd/queries/folds.scm",
       "indents": "grammars/cmd/queries/indents.scm"
+    },
+    {
+      "name": "ibmi_pnlgrp",
+      "camelcase": "IbmiPnlgrp",
+      "scope": "text.ibmi.pnlgrp",
+      "path": "grammars/pnlgrp",
+      "file-types": ["pnlgrp"],
+      "highlights": "grammars/pnlgrp/queries/highlights.scm",
+      "folds": "grammars/pnlgrp/queries/folds.scm",
+      "indents": "grammars/pnlgrp/queries/indents.scm"
     }
   ],
   "metadata": {

@@ -67,6 +67,14 @@ npm run demo:nvim:cmd
 npm run demo:nvim:cmd -- fixtures/cmd/parameters.cmd
 ```
 
+UIM Panel Group sources have the same isolated preview, including nested tag
+folding and highlighting:
+
+```bash
+npm run demo:nvim:pnlgrp
+npm run demo:nvim:pnlgrp -- fixtures/pnlgrp/help.pnlgrp
+```
+
 ## IBM language references
 
 | Language | Authoritative reference |

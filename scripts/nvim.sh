@@ -16,6 +16,7 @@ case "$parser" in
   bnd)      language="ibmi_bnd"; grammar="bnd";      extensions="bnd";           default_source="fixtures/bnd/servicepgm.bnd" ;;
   mi)       language="ibmi_mi";  grammar="mi";       extensions="mi";            default_source="fixtures/mi/program.mi" ;;
   cmd)      language="ibmi_cmd"; grammar="cmd";      extensions="cmd";           default_source="fixtures/cmd/command.cmd" ;;
+  pnlgrp)   language="ibmi_pnlgrp"; grammar="pnlgrp"; extensions="pnlgrp";        default_source="fixtures/pnlgrp/panel.pnlgrp" ;;
   *)
     echo "Unsupported parser: $parser" >&2
     exit 2
