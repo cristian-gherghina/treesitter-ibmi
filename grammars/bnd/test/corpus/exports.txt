@@ -1,0 +1,125 @@
+==================
+Current and previous export blocks
+==================
+
+STRPGMEXP PGMLVL(*CURRENT) SIGNATURE('SERVICE 2.0') LVLCHK(*YES)
+  EXPORT SYMBOL('open')
+  EXPORT SYMBOL(close)
+ENDPGMEXP
+
+STRPGMEXP PGMLVL(*PRV) SIGNATURE(X'0011223344556677')
+  EXPORT SYMBOL('open')
+ENDPGMEXP
+
+---
+
+(source_file
+  (export_block
+    (start_export_block
+      (keyword)
+      (program_level
+        (parameter_name))
+      (signature
+        (parameter_name)
+        (string))
+      (level_check
+        (parameter_name)))
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (string)))
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (identifier)))
+    (end_export_block
+      (keyword)))
+  (export_block
+    (start_export_block
+      (keyword)
+      (program_level
+        (parameter_name))
+      (signature
+        (parameter_name)
+        (hex_string)))
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (string)))
+    (end_export_block
+      (keyword))))
+
+==================
+Wildcard symbols
+==================
+
+STRPGMEXP PGMLVL(*CURRENT)
+  EXPORT SYMBOL(interest>>>)
+  EXPORT SYMBOL(i>>>rate>>>)
+  EXPORT SYMBOL(<<<i>>>rate)
+  EXPORT SYMBOL(<<<)
+ENDPGMEXP
+
+---
+
+(source_file
+  (export_block
+    (start_export_block
+      (keyword)
+      (program_level
+        (parameter_name)))
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (wildcard_symbol)))
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (wildcard_symbol)))
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (wildcard_symbol)))
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (wildcard_symbol)))
+    (end_export_block
+      (keyword))))
+
+==================
+Continued start command
+==================
+
+STRPGMEXP LVLCHK(*NO) +
+          PGMLVL(*PRV) +
+          SIGNATURE(*GEN)
+  EXPORT SYMBOL('oldRate')
+ENDPGMEXP
+
+---
+
+(source_file
+  (export_block
+    (start_export_block
+      (keyword)
+      (level_check
+        (parameter_name))
+      (program_level
+        (parameter_name))
+      (signature
+        (parameter_name)))
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (string)))
+    (end_export_block
+      (keyword))))

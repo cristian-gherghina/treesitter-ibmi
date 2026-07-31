@@ -46,6 +46,13 @@ npm run demo:nvim:cl
 npm run demo:nvim:cl -- fixtures/cl/builtins.clle
 ```
 
+Binder-language sources can be previewed the same way:
+
+```bash
+npm run demo:nvim:bnd
+npm run demo:nvim:bnd -- fixtures/bnd/wildcards.bnd
+```
+
 ## IBM language references
 
 | Language | Authoritative reference |

@@ -1,2 +1,4 @@
 grammars/**/*.c linguist-generated=true
+grammars/**/*.h linguist-generated=true
+
 fixtures/** linguist-vendored=true

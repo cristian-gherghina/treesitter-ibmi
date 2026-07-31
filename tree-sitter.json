@@ -49,6 +49,15 @@
       "highlights": "grammars/cl/queries/highlights.scm",
       "folds": "grammars/cl/queries/folds.scm",
       "indents": "grammars/cl/queries/indents.scm"
+    },
+    {
+      "name": "ibmi_bnd",
+      "camelcase": "IbmiBnd",
+      "scope": "source.ibmi.bnd",
+      "path": "grammars/bnd",
+      "file-types": ["bnd"],
+      "highlights": "grammars/bnd/queries/highlights.scm",
+      "folds": "grammars/bnd/queries/folds.scm"
     }
   ],
   "metadata": {

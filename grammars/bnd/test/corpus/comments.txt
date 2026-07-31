@@ -1,0 +1,37 @@
+==================
+Block and line comments
+==================
+
+/* block comment */
+-- line comment
+STRPGMEXP PGMLVL(*CURRENT)
+  EXPORT SYMBOL('term') /* trailing */
+  EXPORT SYMBOL('rate') -- trailing line comment
+ENDPGMEXP
+/**/
+
+---
+
+(source_file
+  (comment)
+  (comment)
+  (export_block
+    (start_export_block
+      (keyword)
+      (program_level
+        (parameter_name)))
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (string)))
+    (comment)
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (string)))
+    (comment)
+    (end_export_block
+      (keyword)))
+  (comment))

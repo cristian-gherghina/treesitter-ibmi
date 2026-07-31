@@ -1,0 +1,22 @@
+==================
+Missing block terminator
+==================
+
+STRPGMEXP PGMLVL(*CURRENT)
+  EXPORT SYMBOL('open')
+
+---
+
+(source_file
+  (export_block
+    (start_export_block
+      (keyword)
+      (program_level
+        (parameter_name)))
+    (export_statement
+      (keyword)
+      (symbol_parameter
+        (parameter_name)
+        (string)))
+    (end_export_block
+      (MISSING keyword))))
