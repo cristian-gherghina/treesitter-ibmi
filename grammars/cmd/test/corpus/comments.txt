@@ -1,0 +1,18 @@
+==================
+Comments and blank lines
+==================
+
+/* command definition */
+
+CMD PROMPT('It''s ready')
+
+---
+
+(source_file
+  (comment)
+  (statement
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (string)))))

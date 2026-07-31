@@ -67,6 +67,16 @@
       "file-types": ["mi"],
       "highlights": "grammars/mi/queries/highlights.scm",
       "folds": "grammars/mi/queries/folds.scm"
+    },
+    {
+      "name": "ibmi_cmd",
+      "camelcase": "IbmiCmd",
+      "scope": "source.ibmi.cmd",
+      "path": "grammars/cmd",
+      "file-types": ["cmd"],
+      "highlights": "grammars/cmd/queries/highlights.scm",
+      "folds": "grammars/cmd/queries/folds.scm",
+      "indents": "grammars/cmd/queries/indents.scm"
     }
   ],
   "metadata": {

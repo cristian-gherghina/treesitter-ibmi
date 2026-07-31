@@ -1,0 +1,87 @@
+==================
+All statement kinds
+==================
+
+CMD PROMPT('Sample command')
+PARM KWD(OBJ) TYPE(QUALOBJ) MIN(1)
+QUALOBJ: QUAL TYPE(*NAME) LEN(10)
+ITEMS: ELEM TYPE(*CHAR) LEN(10)
+DEP CTL(OBJ) PARM(TEXT) NBRTRUE(*EQ 1)
+SHOW: PMTCTL CTL(TEXT) COND((*EQ *BLANK))
+
+---
+
+(source_file
+  (statement
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (string))))
+  (statement
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (identifier)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (identifier)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (number))))
+  (statement
+    (label
+      name: (identifier))
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (special_value)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (number))))
+  (statement
+    (label
+      name: (identifier))
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (special_value)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (number))))
+  (statement
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (identifier)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (identifier)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (special_value)
+        (number))))
+  (statement
+    (label
+      name: (identifier))
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (identifier)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (argument_list
+          (special_value)
+          (special_value))))))

@@ -1,0 +1,51 @@
+==================
+Nested values, variables, and qualified names
+==================
+
+PARM KWD(OUTPUT) TYPE(*CHAR) VALUES(*PRINT *OUTFILE *BOTH) +
+ DFT(*PRINT)
+DEP CTL((&MINAMT *GT 0) *AND (&CUSTOMER *EQ 0)) PARM(MYLIB/MYPGM)
+
+---
+
+(source_file
+  (statement
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (identifier)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (special_value)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (special_value)
+        (special_value)
+        (special_value)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (special_value))))
+  (statement
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (argument_list
+          (variable)
+          (special_value)
+          (number))
+        (special_value)
+        (argument_list
+          (variable)
+          (special_value)
+          (number))))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (identifier)
+        (punctuation)
+        (identifier)))))

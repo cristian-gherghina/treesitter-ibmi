@@ -1,0 +1,28 @@
+==================
+IBM i variant characters
+==================
+
+QUAL§£$: QUAL TYPE(*NAME)
+PARM KWD(&ØteÆstÅ) TYPE(QUAL@Ñ¥)
+
+---
+
+(source_file
+  (statement
+    (label
+      name: (identifier))
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (special_value))))
+  (statement
+    kind: (statement_kind)
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (variable)))
+    parameter: (parameter
+      name: (identifier)
+      value: (argument_list
+        (identifier)))))

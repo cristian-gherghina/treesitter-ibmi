@@ -60,6 +60,13 @@ npm run demo:nvim:mi
 npm run demo:nvim:mi -- fixtures/mi/instructions.mi
 ```
 
+Command Definition sources can be previewed the same way:
+
+```bash
+npm run demo:nvim:cmd
+npm run demo:nvim:cmd -- fixtures/cmd/parameters.cmd
+```
+
 ## IBM language references
 
 | Language | Authoritative reference |

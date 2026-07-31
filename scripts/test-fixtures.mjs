@@ -102,7 +102,7 @@ if (ddsDialect) {
     if (missing.length > 0) throw new Error(`generated commands missing: ${missing.join(", ")}`);
     console.log(`CL fixtures: ${fixtureNames.length}; generated commands: ${commands.length}`);
   } else {
-    const labels = { bnd: "Binder", mi: "MI" };
+    const labels = { bnd: "Binder", mi: "MI", cmd: "CMD" };
     console.log(`${labels[parser] ?? parser} fixtures: ${fixtureNames.length}`);
   }
 }

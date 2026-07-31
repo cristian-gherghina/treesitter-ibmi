@@ -1,0 +1,13 @@
+==================
+Unknown statement kind
+==================
+
+UNKNOWN VALUE(TEST)
+
+---
+
+(source_file
+  (ERROR
+    (identifier)
+    (identifier)
+    (identifier)))

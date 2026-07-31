@@ -15,6 +15,7 @@ case "$parser" in
   cl)       language="ibmi_cl";  grammar="cl";       extensions="cl,clle,clp,clp38"; default_source="fixtures/cl/program.clle" ;;
   bnd)      language="ibmi_bnd"; grammar="bnd";      extensions="bnd";           default_source="fixtures/bnd/servicepgm.bnd" ;;
   mi)       language="ibmi_mi";  grammar="mi";       extensions="mi";            default_source="fixtures/mi/program.mi" ;;
+  cmd)      language="ibmi_cmd"; grammar="cmd";      extensions="cmd";           default_source="fixtures/cmd/command.cmd" ;;
   *)
     echo "Unsupported parser: $parser" >&2
     exit 2
