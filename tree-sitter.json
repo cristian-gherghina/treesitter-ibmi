@@ -58,6 +58,15 @@
       "file-types": ["bnd"],
       "highlights": "grammars/bnd/queries/highlights.scm",
       "folds": "grammars/bnd/queries/folds.scm"
+    },
+    {
+      "name": "ibmi_mi",
+      "camelcase": "IbmiMi",
+      "scope": "source.ibmi.mi",
+      "path": "grammars/mi",
+      "file-types": ["mi"],
+      "highlights": "grammars/mi/queries/highlights.scm",
+      "folds": "grammars/mi/queries/folds.scm"
     }
   ],
   "metadata": {

@@ -1,0 +1,44 @@
+==================
+Instructions, modifiers, and branches
+==================
+
+ADDN(SR) RESULT, LEFT, 1;
+CMPNV(B) LEFT, RIGHT / LO(LOWER), EQ(SAME);
+DONE: RTX *;
+NOOP;
+
+---
+
+(source_file
+  (instruction
+    opcode: (opcode
+      (identifier))
+    modifier: (instruction_modifier
+      option: (identifier))
+    operands: (instruction_operands
+      (identifier)
+      (identifier)
+      (number)))
+  (instruction
+    opcode: (opcode
+      (identifier))
+    modifier: (instruction_modifier
+      option: (identifier))
+    operands: (instruction_operands
+      (identifier)
+      (identifier))
+    branches: (branch_targets
+      condition: (identifier)
+      label: (identifier)
+      condition: (identifier)
+      label: (identifier)))
+  (instruction
+    (label
+      name: (identifier))
+    opcode: (opcode
+      (identifier))
+    operands: (instruction_operands
+      (special_value)))
+  (instruction
+    opcode: (opcode
+      (identifier))))

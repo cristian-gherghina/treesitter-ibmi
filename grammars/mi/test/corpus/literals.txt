@@ -1,0 +1,30 @@
+==================
+Declaration attributes and literals
+==================
+
+DCL DD PRICE PKD(15,5) AUTO INIT(' ');
+DCL EXCM BADNUM (X'0C01') EXCP_HDLR OVERFLOW;
+
+---
+
+(source_file
+  (declaration
+    (keyword)
+    type: (declaration_type)
+    name: (identifier)
+    attribute: (attribute
+      name: (identifier)
+      (number)
+      (number))
+    attribute: (identifier)
+    attribute: (attribute
+      name: (identifier)
+      (string)))
+  (declaration
+    (keyword)
+    type: (declaration_type)
+    name: (identifier)
+    attribute: (operand_list
+      (hex_string))
+    attribute: (identifier)
+    attribute: (identifier)))

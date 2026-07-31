@@ -1,0 +1,45 @@
+==================
+Entry and declarations
+==================
+
+ENTRY * (PARMS) EXT;
+DCL SPCPTR ARG@ PARM;
+DCL DD COUNT BIN(4) AUTO INIT(0);
+DCL OL PARMS (ARG@) PARM EXT;
+PEND;
+
+---
+
+(source_file
+  (entry_statement
+    (keyword)
+    name: (special_value)
+    parameters: (operand_list
+      (identifier))
+    attribute: (identifier))
+  (declaration
+    (keyword)
+    type: (declaration_type)
+    name: (identifier)
+    attribute: (identifier))
+  (declaration
+    (keyword)
+    type: (declaration_type)
+    name: (identifier)
+    attribute: (attribute
+      name: (identifier)
+      (number))
+    attribute: (identifier)
+    attribute: (attribute
+      name: (identifier)
+      (number)))
+  (declaration
+    (keyword)
+    type: (declaration_type)
+    name: (identifier)
+    attribute: (operand_list
+      (identifier))
+    attribute: (identifier)
+    attribute: (identifier))
+  (end_statement
+    (keyword)))

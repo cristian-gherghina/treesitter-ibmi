@@ -1,0 +1,11 @@
+==================
+Missing statement terminator
+==================
+
+NOOP
+
+---
+
+(source_file
+  (ERROR
+    (identifier)))

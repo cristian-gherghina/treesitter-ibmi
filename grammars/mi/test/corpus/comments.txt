@@ -1,0 +1,14 @@
+==================
+Block comments
+==================
+
+/* MI comment */
+NOOP;
+
+---
+
+(source_file
+  (comment)
+  (instruction
+    opcode: (opcode
+      (identifier))))

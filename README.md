@@ -53,6 +53,13 @@ npm run demo:nvim:bnd
 npm run demo:nvim:bnd -- fixtures/bnd/wildcards.bnd
 ```
 
+Machine Interface sources also have an isolated preview:
+
+```bash
+npm run demo:nvim:mi
+npm run demo:nvim:mi -- fixtures/mi/instructions.mi
+```
+
 ## IBM language references
 
 | Language | Authoritative reference |
