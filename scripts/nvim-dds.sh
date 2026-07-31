@@ -19,6 +19,10 @@ case "$dialect" in
     extensions="icff"
     default_source="$repo_root/fixtures/dds-icff/orders.icff"
     ;;
+  dspf)
+    extensions="dspf,dspf38"
+    default_source="$repo_root/fixtures/dds-dspf/orders.dspf"
+    ;;
   *)
     echo "Unsupported DDS dialect: $dialect" >&2
     exit 2

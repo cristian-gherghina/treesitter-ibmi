@@ -1,0 +1,148 @@
+==================
+Conditioning and screen location
+==================
+
+00010A          R SCREEN
+00020A  01        FIELD          5A  B  3 10DSPATR(HI)
+00030A                                  5  2'Constant'
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (record_format
+      (name_type)
+      (name)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier))))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (quoted_text)))))
+
+==================
+Display usage values
+==================
+
+00010A            INPUT          5A  I  3  2
+00020A            OUTPUT         5A  O  4  2
+00030A            BOTH           5A  B  5  2
+00040A            HIDDEN         5A  H
+00050A            MESSAGE        5A  M 24  2
+00060A            PROGRAM        5A  P
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage))))

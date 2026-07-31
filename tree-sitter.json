@@ -23,6 +23,14 @@
       "path": "grammars/dds/icff",
       "file-types": ["icff"],
       "highlights": "grammars/dds/icff/queries/highlights.scm"
+    },
+    {
+      "name": "dds_dspf",
+      "camelcase": "DdsDspf",
+      "scope": "source.dds.dspf",
+      "path": "grammars/dds/dspf",
+      "file-types": ["dspf", "dspf38"],
+      "highlights": "grammars/dds/dspf/queries/highlights.scm"
     }
   ],
   "metadata": {

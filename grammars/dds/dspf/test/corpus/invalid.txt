@@ -1,0 +1,22 @@
+==================
+ICF-only data type is invalid
+==================
+
+00010A            BADTYPE        5P  B  3  2
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (ERROR
+        (identifier)
+        (decimals)
+        (identifier)))))

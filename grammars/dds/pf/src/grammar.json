@@ -54,6 +54,20 @@
         "value": "[ B]"
       }
     },
+    "location_line": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[ 0-9+-]{3}"
+      }
+    },
+    "location_position": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[ 0-9+-]{3}"
+      }
+    },
     "functions": {
       "type": "REPEAT1",
       "content": {
@@ -439,7 +453,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[,/:]"
+        "value": "[(),/:]"
       }
     },
     "_argument_operator": {
@@ -708,47 +722,8 @@
                                                                   "name": "_newline"
                                                                 },
                                                                 {
-                                                                  "type": "SEQ",
-                                                                  "members": [
-                                                                    {
-                                                                      "type": "SYMBOL",
-                                                                      "name": "_to_functions"
-                                                                    },
-                                                                    {
-                                                                      "type": "CHOICE",
-                                                                      "members": [
-                                                                        {
-                                                                          "type": "SYMBOL",
-                                                                          "name": "_newline"
-                                                                        },
-                                                                        {
-                                                                          "type": "SEQ",
-                                                                          "members": [
-                                                                            {
-                                                                              "type": "SYMBOL",
-                                                                              "name": "functions"
-                                                                            },
-                                                                            {
-                                                                              "type": "CHOICE",
-                                                                              "members": [
-                                                                                {
-                                                                                  "type": "SYMBOL",
-                                                                                  "name": "_ignored_tail"
-                                                                                },
-                                                                                {
-                                                                                  "type": "BLANK"
-                                                                                }
-                                                                              ]
-                                                                            },
-                                                                            {
-                                                                              "type": "SYMBOL",
-                                                                              "name": "_newline"
-                                                                            }
-                                                                          ]
-                                                                        }
-                                                                      ]
-                                                                    }
-                                                                  ]
+                                                                  "type": "SYMBOL",
+                                                                  "name": "_after_usage"
                                                                 }
                                                               ]
                                                             }
@@ -775,6 +750,53 @@
                   ]
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    "_after_usage": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_to_functions"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_function_tail"
+        }
+      ]
+    },
+    "_function_tail": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_newline"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "functions"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_ignored_tail"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_newline"
             }
           ]
         }

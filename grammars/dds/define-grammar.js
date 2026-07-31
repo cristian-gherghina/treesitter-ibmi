@@ -3,6 +3,7 @@
 module.exports = function defineGrammar({
   name,
   conditioning = false,
+  location = false,
   recordTypes,
   dataTypes,
   usage,
@@ -35,6 +36,8 @@ module.exports = function defineGrammar({
       reference: () => token(/[ R]/),
       data_type: () => token(new RegExp(`[ ${dataTypes}]`)),
       usage: () => token(new RegExp(`[ ${usage}]`)),
+      location_line: () => token(/[ 0-9+-]{3}/),
+      location_position: () => token(/[ 0-9+-]{3}/),
 
       functions: ($) =>
         repeat1(
@@ -83,7 +86,7 @@ module.exports = function defineGrammar({
       identifier: () => token(prec(1, /[A-Z_#@$§][A-Z0-9_#@$§]*/)),
       _function_space: () => " ",
       _function_punctuation: () => token(/[(),/:+\-]/),
-      _argument_punctuation: () => token(/[,/:]/),
+      _argument_punctuation: () => token(/[(),/:]/),
       _argument_operator: () => token(prec(1, /[+-]/)),
       continuation: () => token(prec(3, /[+-]/)),
       _function_character: () => token(prec(-1, /[^ \r\n(),/:+\-]/)),
@@ -142,21 +145,11 @@ module.exports = function defineGrammar({
                                 choice(
                                   $._newline,
                                   seq(
-                                    $.usage,
-                                    choice(
-                                      $._newline,
-                                      seq(
-                                        $._to_functions,
-                                        choice(
-                                          $._newline,
-                                          seq(
-                                            $.functions,
-                                            optional($._ignored_tail),
-                                            $._newline,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                                  $.usage,
+                                  choice(
+                                    $._newline,
+                                    $._after_usage,
+                                  ),
                                   ),
                                 ),
                               ),
@@ -169,6 +162,27 @@ module.exports = function defineGrammar({
                 ),
               ),
             ),
+          ),
+        ),
+
+      _after_usage: ($) =>
+        location
+          ? seq(
+              $.location_line,
+              choice(
+                $._newline,
+                seq($.location_position, $._function_tail),
+              ),
+            )
+          : seq($._to_functions, $._function_tail),
+
+      _function_tail: ($) =>
+        choice(
+          $._newline,
+          seq(
+            $.functions,
+            optional($._ignored_tail),
+            $._newline,
           ),
         ),
     },
