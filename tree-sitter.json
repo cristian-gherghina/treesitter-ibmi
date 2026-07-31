@@ -7,6 +7,14 @@
       "path": "grammars/dds/pf",
       "file-types": ["dds", "pf", "pf38"],
       "highlights": "grammars/dds/pf/queries/highlights.scm"
+    },
+    {
+      "name": "dds_lf",
+      "camelcase": "DdsLf",
+      "scope": "source.dds.lf",
+      "path": "grammars/dds/lf",
+      "file-types": ["lf", "lf38"],
+      "highlights": "grammars/dds/lf/queries/highlights.scm"
     }
   ],
   "metadata": {

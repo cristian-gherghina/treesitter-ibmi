@@ -1,0 +1,21 @@
+==================
+Physical-file-only usage is invalid
+==================
+
+00010A            BADUSE       100A  M
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (ERROR
+        (identifier)))))

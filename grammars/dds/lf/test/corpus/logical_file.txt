@@ -1,0 +1,139 @@
+==================
+Record, join, key, select, and omit specifications
+==================
+
+00010A          R PERSFMT                   PFILE(PERSON)
+00020A          J                           JOIN(PF1 PF2)
+00030A          K PERSONID                  DESCEND
+00040A          S STATE                     COMP(EQ 'NY')
+00050A          O STATUS                    COMP(EQ 'X')
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (record_format
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier))))))
+  (record
+    (sequence)
+    (form_type)
+    (join_specification
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)
+            (identifier))))))
+  (record
+    (sequence)
+    (form_type)
+    (key_field
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)))))
+  (record
+    (sequence)
+    (form_type)
+    (select_field
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)
+            (quoted_text))))))
+  (record
+    (sequence)
+    (form_type)
+    (omit_field
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)
+            (quoted_text)))))))
+
+==================
+Logical-file usage values
+==================
+
+00010A            INPUT        100A  I
+00020A            NEITHER      100A  N
+00030A            BOTH         100A  B
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)))
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)))
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage))))

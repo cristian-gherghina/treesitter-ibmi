@@ -3,12 +3,16 @@
   "private": true,
   "scripts": {
     "generate:dds-pf": "tree-sitter generate --abi 15 --output grammars/dds/pf/src grammars/dds/pf/grammar.js",
+    "generate:dds-lf": "tree-sitter generate --abi 15 --output grammars/dds/lf/src grammars/dds/lf/grammar.js",
+    "generate:dds": "npm run generate:dds-pf && npm run generate:dds-lf",
     "demo:nvim": "bash scripts/nvim-dds-pf.sh",
     "test:dds-pf": "tree-sitter test -p grammars/dds/pf",
-    "test:fixtures:dds-pf": "node scripts/test-dds-pf.mjs",
-    "test:queries:dds-pf": "tree-sitter query grammars/dds/pf/queries/highlights.scm fixtures/dds-pf/alt-ext.dds",
-    "check:generated": "npm run generate:dds-pf && git diff --exit-code -- grammars/dds/pf/src",
-    "test": "npm run test:dds-pf && npm run test:fixtures:dds-pf && npm run test:queries:dds-pf"
+    "test:dds-lf": "tree-sitter test -p grammars/dds/lf",
+    "test:fixtures:dds-pf": "node scripts/test-dds-fixtures.mjs pf",
+    "test:fixtures:dds-lf": "node scripts/test-dds-fixtures.mjs lf",
+    "test:queries:dds-pf": "tree-sitter query -p grammars/dds/pf grammars/dds/pf/queries/highlights.scm fixtures/dds-pf/alt-ext.dds",
+    "check:generated": "npm run generate:dds && git diff --exit-code -- grammars/dds/pf/src grammars/dds/lf/src",
+    "test": "npm run test:dds-pf && npm run test:fixtures:dds-pf && npm run test:queries:dds-pf && npm run test:dds-lf && npm run test:fixtures:dds-lf"
   },
   "devDependencies": {
     "tree-sitter-cli": "0.26.11"

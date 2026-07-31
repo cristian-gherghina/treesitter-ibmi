@@ -1,7 +1,8 @@
 # Column scanner findings
 
-The DDS/PF spike validates the column strategy shared by fixed-format IBM i
-grammars.
+The DDS/PF spike validated the column strategy shared by fixed-format IBM i
+grammars. PF and LF now use `dds/scanner.c` through small language-symbol
+wrappers in each generated parser directory.
 
 ## Strategy
 
@@ -15,10 +16,11 @@ ordinary grammar tokens. This separation is important:
 - the scanner handles positioning, short records, comments, and the ignored
   tail without owning language semantics.
 
-The PF grammar exposes sequence, name, reference, length, data type, decimals,
+The DDS grammars expose sequence, name, reference, length, data type, decimals,
 usage, and functions-area nodes. Functions-area keywords and arguments are
-parsed by the grammar after the scanner positions the lexer at column 45. This
-keeps the 36-keyword PF set in tracked JSON and out of scanner C code.
+parsed by the generated dialect grammar after the scanner positions the lexer
+at column 45. This keeps each dialect's keyword set in tracked JSON and out of
+scanner C code.
 
 External scanner tokens must not consume input and then return `false`.
 Tree-sitter does not rewind those lexer side effects in every recovery path.
@@ -39,5 +41,5 @@ grammar produce an `ERROR` node.
 - Incremental replacements in form type, name type, and data type are reparsed
   and invalid replacements produce errors.
 
-The spike uses no serialized scanner state. The same approach can be factored
-into the five DDS dialects and adapted for RPGLE, RPG/400, and COBOL layouts.
+The scanner uses no serialized state. The same approach is shared across the
+five DDS dialects and can be adapted for RPGLE, RPG/400, and COBOL layouts.

@@ -1,17 +1,21 @@
 #!/usr/bin/env node
 
-// Runs DDS/PF fixture and incremental-edit checks with explicit expectations.
+// Runs DDS dialect fixture, keyword, and optional incremental-edit checks.
 
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 
+// Resolve the selected dialect's grammar, fixtures, and local parser cache.
 const repoRoot = path.resolve(import.meta.dirname, "..");
 const cli = path.join(repoRoot, "node_modules", "tree-sitter-cli", "cli.js");
-const grammar = path.join(repoRoot, "grammars", "dds", "pf");
-const fixtureRoot = path.join(repoRoot, "fixtures", "dds-pf");
+const dialect = process.argv[2] ?? "pf";
+const grammar = path.join(repoRoot, "grammars", "dds", dialect);
+const fixtureRoot = path.join(repoRoot, "fixtures", `dds-${dialect}`);
 const cacheRoot = path.join(repoRoot, ".cache");
-const expectedErrorFixtures = new Set(["keywords.pf"]);
+const expectedErrorFixtures = new Set(
+  dialect === "pf" ? ["keywords.pf"] : [],
+);
 
 // Run Tree-sitter and return stdout, or null when the command fails.
 function run(args) {
@@ -22,7 +26,10 @@ function run(args) {
       encoding: "utf8",
       stdio: "pipe",
     });
-  } catch {
+  } catch (error) {
+    if (error.stderr) {
+      process.stderr.write(error.stderr);
+    }
     return null;
   }
 }
@@ -32,6 +39,7 @@ function parse(args) {
   return run(["parse", "-p", grammar, ...args]) !== null;
 }
 
+// Verify every fixture has its expected parse result.
 let checked = 0;
 const fixtureNames = fs
   .readdirSync(fixtureRoot)
@@ -49,18 +57,27 @@ for (const name of fixtureNames) {
   checked += 1;
 }
 
-const incrementalFixture = path.join(fixtureRoot, "columns.pf");
-for (const edit of ["7,5 1 B", "7,16 1 M", "9,34 1 X"]) {
-  if (parse([incrementalFixture, "--quiet", "--edits", edit])) {
-    throw new Error(`incremental edit should produce an error: ${edit}`);
+// Confirm PF incremental edits reject invalid columns and accept a valid one.
+let incrementalChecks = 0;
+if (dialect === "pf") {
+  const incrementalFixture = path.join(fixtureRoot, "columns.pf");
+  for (const edit of ["7,5 1 B", "7,16 1 M", "9,34 1 X"]) {
+    if (parse([incrementalFixture, "--quiet", "--edits", edit])) {
+      throw new Error(`incremental edit should produce an error: ${edit}`);
+    }
+    incrementalChecks += 1;
   }
-}
-if (!parse([incrementalFixture, "--quiet", "--edits", "9,34 1 S"])) {
-  throw new Error("valid incremental data-type edit produced an error");
+  if (!parse([incrementalFixture, "--quiet", "--edits", "9,34 1 S"])) {
+    throw new Error("valid incremental data-type edit produced an error");
+  }
+  incrementalChecks += 1;
 }
 
+// Capture every keyword recognized across the dialect's fixtures.
 const keywordOutput = run([
   "query",
+  "-p",
+  grammar,
   path.join(grammar, "queries", "keywords.scm"),
   ...fixtureNames.map((name) => path.join(fixtureRoot, name)),
 ]);
@@ -72,16 +89,23 @@ const capturedKeywords = new Set(
     (match) => match[1],
   ),
 );
+
+// Ensure the fixtures exercise the complete extracted keyword table.
 const expectedKeywords = JSON.parse(
-  fs.readFileSync(path.join(repoRoot, "data", "dds-pf-keywords.json"), "utf8"),
+  fs.readFileSync(
+    path.join(repoRoot, "data", `dds-${dialect}-keywords.json`),
+    "utf8",
+  ),
 );
 const missingKeywords = expectedKeywords.filter(
   (keyword) => !capturedKeywords.has(keyword),
 );
 if (missingKeywords.length > 0) {
-  throw new Error(`keywords.pf is missing: ${missingKeywords.join(", ")}`);
+  throw new Error(
+    `${dialect} keyword fixture is missing: ${missingKeywords.join(", ")}`,
+  );
 }
 
 console.log(
-  `DDS/PF fixtures: ${checked}; incremental edits: 4; keywords: ${expectedKeywords.length}`,
+  `DDS/${dialect.toUpperCase()} fixtures: ${checked}; incremental edits: ${incrementalChecks}; keywords: ${expectedKeywords.length}`,
 );
