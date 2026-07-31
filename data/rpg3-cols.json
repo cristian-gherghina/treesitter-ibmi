@@ -1,0 +1,781 @@
+{
+ "H": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   14,
+   "Reserved"
+  ],
+  [
+   15,
+   15,
+   "Debug"
+  ],
+  [
+   16,
+   17,
+   "Reserved"
+  ],
+  [
+   18,
+   18,
+   "Currency Symbol"
+  ],
+  [
+   19,
+   19,
+   "Date Format"
+  ],
+  [
+   20,
+   20,
+   "Date Edit"
+  ],
+  [
+   21,
+   21,
+   "Decimal Notation"
+  ],
+  [
+   22,
+   25,
+   "Reserved"
+  ],
+  [
+   26,
+   26,
+   "Alternate Collating Sequence"
+  ],
+  [
+   27,
+   39,
+   "Reserved"
+  ],
+  [
+   40,
+   40,
+   "Sign Handling"
+  ],
+  [
+   41,
+   41,
+   "Forms Alignment"
+  ],
+  [
+   42,
+   42,
+   "Reserved"
+  ],
+  [
+   43,
+   43,
+   "File Translation"
+  ],
+  [
+   44,
+   56,
+   "Reserved"
+  ],
+  [
+   57,
+   57,
+   "Transparency Check"
+  ],
+  [
+   58,
+   74,
+   "Reserved"
+  ],
+  [
+   75,
+   80,
+   "Program Identification"
+  ]
+ ],
+ "F": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   14,
+   "File Name"
+  ],
+  [
+   15,
+   15,
+   "File Type"
+  ],
+  [
+   16,
+   16,
+   "File Designation"
+  ],
+  [
+   17,
+   17,
+   "End of File"
+  ],
+  [
+   18,
+   18,
+   "Sequence"
+  ],
+  [
+   19,
+   19,
+   "File Format"
+  ],
+  [
+   20,
+   23,
+   "Reserved"
+  ],
+  [
+   24,
+   27,
+   "Record Length"
+  ],
+  [
+   28,
+   28,
+   "Limits Processing"
+  ],
+  [
+   29,
+   30,
+   "Length of Key or Record Address"
+  ],
+  [
+   31,
+   31,
+   "Record Address Type"
+  ],
+  [
+   32,
+   32,
+   "File Organization"
+  ],
+  [
+   33,
+   34,
+   "Overflow Indicator"
+  ],
+  [
+   35,
+   38,
+   "Key Field Starting Location"
+  ],
+  [
+   39,
+   39,
+   "Extension Code"
+  ],
+  [
+   40,
+   46,
+   "Device"
+  ],
+  [
+   47,
+   52,
+   "Reserved"
+  ],
+  [
+   53,
+   53,
+   "Continuation Lines"
+  ],
+  [
+   54,
+   59,
+   "Routine"
+  ],
+  [
+   60,
+   65,
+   "Reserved"
+  ],
+  [
+   66,
+   66,
+   "File Addition"
+  ],
+  [
+   67,
+   70,
+   "Reserved"
+  ],
+  [
+   71,
+   72,
+   "File Condition"
+  ],
+  [
+   73,
+   74,
+   "Reserved"
+  ],
+  [
+   75,
+   80,
+   "Comments"
+  ]
+ ],
+ "E": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   10,
+   "Reserved"
+  ],
+  [
+   11,
+   18,
+   "From File Name"
+  ],
+  [
+   19,
+   26,
+   "To File Name"
+  ],
+  [
+   27,
+   32,
+   "Array or Table Name"
+  ],
+  [
+   33,
+   35,
+   "Entries per Record"
+  ],
+  [
+   36,
+   39,
+   "Entries per Array or Table"
+  ],
+  [
+   40,
+   42,
+   "Length of Entry"
+  ],
+  [
+   43,
+   43,
+   "Data Format"
+  ],
+  [
+   44,
+   44,
+   "Decimal Positions"
+  ],
+  [
+   45,
+   45,
+   "Sequence"
+  ],
+  [
+   46,
+   57,
+   "Second Array Description"
+  ],
+  [
+   58,
+   74,
+   "Comments"
+  ],
+  [
+   75,
+   80,
+   "Comments"
+  ]
+ ],
+ "L": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   14,
+   "File Name"
+  ],
+  [
+   15,
+   17,
+   "Lines Per Page"
+  ],
+  [
+   18,
+   19,
+   "Form Length"
+  ],
+  [
+   20,
+   22,
+   "Overflow Line Number"
+  ],
+  [
+   23,
+   24,
+   "Overflow Line"
+  ],
+  [
+   25,
+   74,
+   "Reserved"
+  ],
+  [
+   75,
+   80,
+   "Comments"
+  ]
+ ],
+ "I": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   14,
+   "File Name"
+  ],
+  [
+   14,
+   16,
+   "Logical Relationship"
+  ],
+  [
+   15,
+   16,
+   "Sequence"
+  ],
+  [
+   17,
+   17,
+   "Number"
+  ],
+  [
+   18,
+   18,
+   "Option"
+  ],
+  [
+   19,
+   20,
+   "Record Identifying Indicator, or **"
+  ],
+  [
+   21,
+   41,
+   "Record Identification Codes"
+  ],
+  [
+   42,
+   42,
+   "Reserved"
+  ],
+  [
+   43,
+   43,
+   "Data Format"
+  ],
+  [
+   44,
+   51,
+   "Field Location"
+  ],
+  [
+   52,
+   52,
+   "Decimal Positions"
+  ],
+  [
+   53,
+   58,
+   "Field Name"
+  ],
+  [
+   59,
+   60,
+   "Control Level"
+  ],
+  [
+   61,
+   62,
+   "Matching Fields"
+  ],
+  [
+   63,
+   64,
+   "Field Record Relation"
+  ],
+  [
+   65,
+   70,
+   "Field Indicators"
+  ],
+  [
+   71,
+   74,
+   "Reserved"
+  ],
+  [
+   75,
+   80,
+   "Comments"
+  ],
+  [
+   7,
+   14,
+   "Record Name"
+  ],
+  [
+   15,
+   18,
+   "Reserved"
+  ],
+  [
+   19,
+   20,
+   "Record Identifying Indicator"
+  ],
+  [
+   21,
+   41,
+   "Record Identification Code"
+  ],
+  [
+   42,
+   74,
+   "Reserved"
+  ],
+  [
+   7,
+   20,
+   "Reserved"
+  ],
+  [
+   21,
+   30,
+   "External Field Name"
+  ],
+  [
+   31,
+   52,
+   "Reserved"
+  ],
+  [
+   63,
+   64,
+   "Reserved"
+  ],
+  [
+   7,
+   12,
+   "Data Structure Name"
+  ],
+  [
+   13,
+   16,
+   "Reserved"
+  ],
+  [
+   17,
+   17,
+   "External Description"
+  ],
+  [
+   21,
+   30,
+   "External File Name"
+  ],
+  [
+   31,
+   43,
+   "Reserved"
+  ],
+  [
+   44,
+   47,
+   "Data Structure Occurrences"
+  ],
+  [
+   48,
+   51,
+   "Length"
+  ],
+  [
+   52,
+   74,
+   "Reserved"
+  ],
+  [
+   7,
+   7,
+   "Reserved"
+  ],
+  [
+   8,
+   8,
+   "Initialization Option"
+  ],
+  [
+   9,
+   20,
+   "Reserved"
+  ],
+  [
+   21,
+   42,
+   "Initialization Value"
+  ],
+  [
+   31,
+   42,
+   "Reserved"
+  ],
+  [
+   43,
+   43,
+   "Internal Data Format"
+  ],
+  [
+   59,
+   74,
+   "Reserved"
+  ],
+  [
+   21,
+   42,
+   "Constant"
+  ],
+  [
+   43,
+   43,
+   "Data Type"
+  ],
+  [
+   44,
+   52,
+   "Reserved"
+  ],
+  [
+   53,
+   58,
+   "Constant Name"
+  ],
+  [
+   43,
+   74,
+   "Reserved"
+  ]
+ ],
+ "C": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   8,
+   "Control Level"
+  ],
+  [
+   9,
+   17,
+   "Indicators"
+  ],
+  [
+   18,
+   27,
+   "Factor 1"
+  ],
+  [
+   28,
+   32,
+   "Operation"
+  ],
+  [
+   33,
+   42,
+   "Factor 2"
+  ],
+  [
+   43,
+   48,
+   "Result Field"
+  ],
+  [
+   49,
+   51,
+   "Field Length"
+  ],
+  [
+   52,
+   52,
+   "Decimal Positions"
+  ],
+  [
+   53,
+   53,
+   "Operation Extender"
+  ],
+  [
+   54,
+   59,
+   "Resulting Indicators"
+  ],
+  [
+   60,
+   74,
+   "Comments"
+  ],
+  [
+   75,
+   80,
+   "Comments"
+  ]
+ ],
+ "O": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   14,
+   "File Name"
+  ],
+  [
+   14,
+   16,
+   "Logical Relationship"
+  ],
+  [
+   15,
+   15,
+   "Type"
+  ],
+  [
+   16,
+   18,
+   "Record Addition/Deletion"
+  ],
+  [
+   16,
+   16,
+   "Fetch Overflow/Release"
+  ],
+  [
+   17,
+   22,
+   "Space and Skip"
+  ],
+  [
+   17,
+   17,
+   "Space Before"
+  ],
+  [
+   18,
+   18,
+   "Space After"
+  ],
+  [
+   19,
+   20,
+   "Skip Before"
+  ],
+  [
+   21,
+   22,
+   "Skip After"
+  ],
+  [
+   23,
+   31,
+   "Output Indicators"
+  ],
+  [
+   32,
+   37,
+   "EXCPT Name"
+  ],
+  [
+   32,
+   37,
+   "Field Name"
+  ],
+  [
+   38,
+   38,
+   "Edit Codes"
+  ],
+  [
+   39,
+   39,
+   "Blank After"
+  ],
+  [
+   40,
+   43,
+   "End Position"
+  ],
+  [
+   44,
+   44,
+   "Data Format"
+  ],
+  [
+   45,
+   70,
+   "Constant or Edit Word"
+  ],
+  [
+   71,
+   74,
+   "Reserved"
+  ],
+  [
+   75,
+   80,
+   "Comments"
+  ],
+  [
+   7,
+   14,
+   "Record Name"
+  ],
+  [
+   16,
+   16,
+   "Release"
+  ],
+  [
+   16,
+   18,
+   "Record Addition"
+  ],
+  [
+   16,
+   22,
+   "Fetch Overflow/Space/Skip"
+  ]
+ ]
+}

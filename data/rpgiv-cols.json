@@ -1,0 +1,421 @@
+{
+ "H": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   80,
+   "Keywords"
+  ]
+ ],
+ "F": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   16,
+   "File Name"
+  ],
+  [
+   17,
+   17,
+   "File Type"
+  ],
+  [
+   18,
+   18,
+   "File Designation"
+  ],
+  [
+   19,
+   19,
+   "End of File"
+  ],
+  [
+   20,
+   20,
+   "File Addition"
+  ],
+  [
+   21,
+   21,
+   "Sequence"
+  ],
+  [
+   22,
+   22,
+   "File Format"
+  ],
+  [
+   23,
+   27,
+   "Record Length"
+  ],
+  [
+   28,
+   28,
+   "Limits Processing"
+  ],
+  [
+   29,
+   33,
+   "Length of Key"
+  ],
+  [
+   34,
+   34,
+   "Record Address Type"
+  ],
+  [
+   35,
+   35,
+   "File Organization"
+  ],
+  [
+   36,
+   42,
+   "Device"
+  ],
+  [
+   43,
+   43,
+   "Reserved"
+  ],
+  [
+   44,
+   80,
+   "Keywords"
+  ]
+ ],
+ "D": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   21,
+   "Name"
+  ],
+  [
+   22,
+   22,
+   "External Description"
+  ],
+  [
+   23,
+   23,
+   "Type of Data Structure"
+  ],
+  [
+   24,
+   25,
+   "Definition Type"
+  ],
+  [
+   26,
+   32,
+   "From Position"
+  ],
+  [
+   33,
+   39,
+   "To Position / Length"
+  ],
+  [
+   40,
+   40,
+   "Internal Data Type"
+  ],
+  [
+   41,
+   42,
+   "Decimal Positions"
+  ],
+  [
+   43,
+   43,
+   "Reserved"
+  ],
+  [
+   44,
+   80,
+   "Keywords"
+  ]
+ ],
+ "I": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   16,
+   "File Name"
+  ],
+  [
+   16,
+   18,
+   "Logical Relationship"
+  ],
+  [
+   17,
+   18,
+   "Sequence"
+  ],
+  [
+   19,
+   19,
+   "Number"
+  ],
+  [
+   20,
+   20,
+   "Option"
+  ],
+  [
+   21,
+   22,
+   "Record Identifying Indicator"
+  ],
+  [
+   23,
+   46,
+   "Record Identification Codes"
+  ],
+  [
+   31,
+   34,
+   "Data Attributes"
+  ],
+  [
+   35,
+   35,
+   "Date/Time Separator"
+  ],
+  [
+   36,
+   36,
+   "Data Format"
+  ],
+  [
+   37,
+   46,
+   "Field Location"
+  ],
+  [
+   47,
+   48,
+   "Decimal Positions"
+  ],
+  [
+   49,
+   62,
+   "Field Name"
+  ],
+  [
+   63,
+   64,
+   "Control Level"
+  ],
+  [
+   65,
+   66,
+   "Matching Fields"
+  ],
+  [
+   67,
+   68,
+   "Field Record Relation"
+  ],
+  [
+   69,
+   74,
+   "Field Indicators"
+  ],
+  [
+   21,
+   30,
+   "External Field Name"
+  ]
+ ],
+ "C": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   8,
+   "Control Level"
+  ],
+  [
+   9,
+   11,
+   "Indicators"
+  ],
+  [
+   12,
+   25,
+   "Factor 1"
+  ],
+  [
+   26,
+   35,
+   "Operation and Extender"
+  ],
+  [
+   36,
+   49,
+   "Factor 2"
+  ],
+  [
+   50,
+   63,
+   "Result Field"
+  ],
+  [
+   64,
+   68,
+   "Field Length"
+  ],
+  [
+   69,
+   70,
+   "Decimal Positions"
+  ],
+  [
+   71,
+   76,
+   "Resulting Indicators"
+  ],
+  [
+   36,
+   80,
+   "Extended Factor 2"
+  ]
+ ],
+ "O": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   16,
+   "File Name"
+  ],
+  [
+   16,
+   18,
+   "Logical Relationship"
+  ],
+  [
+   17,
+   17,
+   "Type"
+  ],
+  [
+   18,
+   20,
+   "Record Addition/Deletion"
+  ],
+  [
+   18,
+   18,
+   "Fetch Overflow/Release"
+  ],
+  [
+   21,
+   29,
+   "Output Indicators"
+  ],
+  [
+   30,
+   39,
+   "EXCEPT Name"
+  ],
+  [
+   40,
+   42,
+   "Space Before"
+  ],
+  [
+   43,
+   45,
+   "Space After"
+  ],
+  [
+   46,
+   48,
+   "Skip Before"
+  ],
+  [
+   49,
+   51,
+   "Skip After"
+  ],
+  [
+   30,
+   43,
+   "Field Name"
+  ],
+  [
+   44,
+   44,
+   "Edit Codes"
+  ],
+  [
+   45,
+   45,
+   "Blank After"
+  ],
+  [
+   47,
+   51,
+   "End Position"
+  ],
+  [
+   52,
+   52,
+   "Data Format"
+  ],
+  [
+   53,
+   80,
+   "Constant or Edit Word"
+  ]
+ ],
+ "P": [
+  [
+   6,
+   6,
+   "Form Type"
+  ],
+  [
+   7,
+   21,
+   "Name"
+  ],
+  [
+   24,
+   24,
+   "Begin/End Procedure"
+  ],
+  [
+   44,
+   80,
+   "Keywords"
+  ]
+ ]
+}

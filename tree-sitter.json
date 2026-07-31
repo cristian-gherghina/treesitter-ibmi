@@ -1,0 +1,33 @@
+{
+  "grammars": [
+    {
+      "name": "dds_pf",
+      "camelcase": "DdsPf",
+      "scope": "source.dds.pf",
+      "path": "grammars/dds/pf",
+      "file-types": ["dds", "pf", "pf38"],
+      "highlights": "grammars/dds/pf/queries/highlights.scm"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammars for IBM i languages",
+    "authors": [
+      {
+        "name": "Barrett Otte"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/barrettotte/treesitter-ibmi"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "node": false,
+    "python": false,
+    "rust": false,
+    "swift": false,
+    "go": false
+  }
+}

@@ -1,0 +1,47 @@
+==================
+Invalid form type
+:error
+==================
+
+00010B          R ACCOUNT
+
+---
+
+(source_file
+  (ERROR))
+
+==================
+Invalid name type
+:error
+==================
+
+00010A          M ACCOUNT
+
+---
+
+(source_file
+  (ERROR))
+
+==================
+Invalid data type
+:error
+==================
+
+00010A            FIELD          9X
+
+---
+
+(source_file
+  (ERROR))
+
+==================
+Tabs are not source columns
+:error
+==================
+
+00010A	 R ACCOUNT
+
+---
+
+(source_file
+  (ERROR))

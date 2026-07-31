@@ -1,0 +1,139 @@
+{
+ "H:DECPREC": [
+  "30",
+  "31",
+  "63"
+ ],
+ "H:INTPREC": [
+  "10",
+  "20"
+ ],
+ "F:EXTFILE": [
+  "filename",
+  "*EXTDESC"
+ ],
+ "D:VARYING": [
+  "2",
+  "4"
+ ],
+ "H:ALLOC": [
+  "*STGMDL",
+  "*TERASPACE",
+  "*SNGLVL"
+ ],
+ "H:ALTSEQ": [
+  "*NONE",
+  "*SRC",
+  "*EXT"
+ ],
+ "H:ALWNULL": [
+  "*NO",
+  "*INPUTONLY",
+  "*USRCTL"
+ ],
+ "H:ASSERT": [
+  "*EXCP",
+  "*WARN",
+  "*NONE",
+  "*CALL"
+ ],
+ "H:CCSIDCVT": [
+  "*EXCP",
+  "*LIST"
+ ],
+ "H:CHARCOUNT": [
+  "*NATURAL",
+  "*STDCHARSIZE"
+ ],
+ "H:DATEYY": [
+  "*ALLOW",
+  "*WARN",
+  "*NOALLOW"
+ ],
+ "H:DEBUG": [
+  "*DUMP",
+  "*INPUT",
+  "*RETVAL",
+  "*XMLSAX",
+  "*NO",
+  "*YES"
+ ],
+ "H:DFTACTGRP": [
+  "*YES",
+  "*NO"
+ ],
+ "H:ENBPFRCOL": [
+  "*PEP",
+  "*ENTRYEXIT",
+  "*FULL"
+ ],
+ "H:EXPROPTS": [
+  "*MAXDIGITS",
+  "*RESDECPOS",
+  "*ALWBLANKNUM",
+  "*USEDECEDIT"
+ ],
+ "H:EXTBININT": [
+  "*NO",
+  "*YES"
+ ],
+ "H:FLTDIV": [
+  "*NO",
+  "*YES"
+ ],
+ "H:FORMSALIGN": [
+  "*NO",
+  "*YES"
+ ],
+ "H:FTRANS": [
+  "*NONE",
+  "*SRC"
+ ],
+ "H:OPTIMIZE": [
+  "*NONE",
+  "*BASIC",
+  "*FULL"
+ ],
+ "H:PRFDTA": [
+  "*NOCOL",
+  "*COL"
+ ],
+ "H:REQPREXP": [
+  "*NO",
+  "*WARN",
+  "*REQUIRE"
+ ],
+ "H:STGMDL": [
+  "*INHERIT",
+  "*SNGLVL",
+  "*TERASPACE"
+ ],
+ "H:THREAD": [
+  "*CONCURRENT",
+  "*SERIALIZE"
+ ],
+ "H:TRUNCNBR": [
+  "*YES",
+  "*NO"
+ ],
+ "H:USRPRF": [
+  "*USER",
+  "*OWNER"
+ ],
+ "F:BLOCK": [
+  "*YES",
+  "*NO"
+ ],
+ "F:CHARCOUNT": [
+  "*NATURAL",
+  "*STDCHARSIZE"
+ ],
+ "F:DATA": [
+  "*CVT",
+  "*NOCVT"
+ ],
+ "F:MAXDEV": [
+  "*ONLY",
+  "*FILE"
+ ]
+}

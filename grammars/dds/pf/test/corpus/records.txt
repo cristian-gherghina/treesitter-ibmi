@@ -1,0 +1,41 @@
+==================
+Comment record
+==================
+
+     A* comment
+
+---
+
+(source_file
+  (comment
+    (comment_record)))
+
+==================
+Data records
+==================
+
+00010A          R ACCOUNT
+00020A            ACCTNO         6P 0
+00030A          K ACCTNO
+
+---
+
+(source_file
+  (record
+    (data_record))
+  (record
+    (data_record))
+  (record
+    (data_record)))
+
+==================
+Short valid record
+==================
+
+     A
+
+---
+
+(source_file
+  (record
+    (data_record)))

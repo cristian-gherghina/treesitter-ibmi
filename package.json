@@ -1,0 +1,12 @@
+{
+  "name": "treesitter-ibmi",
+  "private": true,
+  "scripts": {
+    "generate:dds-pf": "tree-sitter generate --abi 15 --output grammars/dds/pf/src grammars/dds/pf/grammar.js",
+    "test:dds-pf": "tree-sitter test -p grammars/dds/pf",
+    "test": "npm run test:dds-pf"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "0.26.11"
+  }
+}

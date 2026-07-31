@@ -1,0 +1,118 @@
+{
+ "ALIAS": [],
+ "ALIGN": [
+  "*FULL"
+ ],
+ "ALT": [],
+ "ALTSEQ": [
+  "*NONE"
+ ],
+ "ASCEND": [],
+ "BASED": [],
+ "BINDEC": [],
+ "CCSID": [
+  "*EXACT",
+  "*NOEXACT"
+ ],
+ "CHAR": [],
+ "CLASS": [
+  "*JAVA"
+ ],
+ "CONST": [],
+ "CTDATA": [],
+ "DATE": [],
+ "DATFMT": [],
+ "DESCEND": [],
+ "DIM": [
+  "*AUTO",
+  "*CTDATA",
+  "*VAR"
+ ],
+ "DTAARA": [],
+ "EXPORT": [],
+ "EXT": [],
+ "EXTFLD": [],
+ "EXTFMT": [],
+ "EXTNAME": [
+  "*ALL",
+  "*INPUT",
+  "*KEY",
+  "*NULL",
+  "*OUTPUT"
+ ],
+ "EXTPGM": [],
+ "EXTPROC": [
+  "*CL",
+  "*CNOWIDEN",
+  "*CWIDEN",
+  "*DCLCASE",
+  "*JAVA"
+ ],
+ "FLOAT": [],
+ "FROMFILE": [],
+ "GRAPH": [],
+ "IMPORT": [],
+ "INT": [],
+ "IND": [],
+ "INZ": [],
+ "LEN": [],
+ "LIKE": [
+  "*EXT"
+ ],
+ "LIKEDS": [],
+ "LIKEFILE": [],
+ "LIKEREC": [],
+ "NOOPT": [],
+ "NULLIND": [],
+ "OBJECT": [
+  "*JAVA"
+ ],
+ "OCCURS": [],
+ "OPDESC": [],
+ "OPTIONS": [
+  "*EXACT",
+  "*NOPASS",
+  "*NULLIND",
+  "*OMIT",
+  "*RIGHTADJ",
+  "*STRING",
+  "*TRIM",
+  "*VARSIZE"
+ ],
+ "OVERLAY": [
+  "*NEXT"
+ ],
+ "OVERLOAD": [],
+ "PACKED": [],
+ "PACKEVEN": [],
+ "PERRCD": [],
+ "POINTER": [
+  "*PROC"
+ ],
+ "POS": [],
+ "PREFIX": [],
+ "PROCPTR": [],
+ "PSDS": [],
+ "QUALIFIED": [],
+ "REQPROTO": [
+  "*NO"
+ ],
+ "RTNPARM": [],
+ "SAMEPOS": [],
+ "STATIC": [
+  "*ALLTHREAD"
+ ],
+ "TEMPLATE": [],
+ "TIME": [],
+ "TIMESTAMP": [],
+ "TIMFMT": [],
+ "TOFILE": [],
+ "UCS2": [],
+ "UNS": [],
+ "VALUE": [],
+ "VARCHAR": [],
+ "VARGRAPH": [],
+ "VARUCS2": [],
+ "VARYING": [],
+ "ZONED": []
+}
