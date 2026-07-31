@@ -1,0 +1,38 @@
+==================
+Display-file-only usage is invalid
+==================
+
+00010A            BADUSE        10A  I
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (ERROR
+        (identifier)))))
+
+==================
+Invalid conditioning character
+==================
+
+00010AX         R BADCOND
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (ERROR
+      (identifier)
+      (name))))

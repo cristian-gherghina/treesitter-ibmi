@@ -26,6 +26,13 @@
       "type": "STRING",
       "value": "A"
     },
+    "conditioning": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[ AO][ N][0-9 ]{2}[ N][0-9 ]{2}[ N][0-9 ]{2}"
+      }
+    },
     "reference": {
       "type": "TOKEN",
       "content": {

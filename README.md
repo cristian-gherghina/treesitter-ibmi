@@ -11,14 +11,25 @@ For a quick isolated view using a temporary parser and a clean Neovim config:
 npm run demo:nvim
 ```
 
-This opens a separate `--clean` Neovim with the built-in `habamax` theme,
-highlighting, and `:InspectTree` already active on
-`fixtures/dds-pf/orders.pf`. It does not load or write to your normal Neovim
-configuration, data, cache, or state directories. Pass another PF, PF38, or
-DDS file after `--`:
+This opens the DDS/PF example. The other available DDS parsers have matching
+commands:
+
+```bash
+npm run demo:nvim:pf
+npm run demo:nvim:lf
+npm run demo:nvim:icff
+```
+
+Each command opens a separate `--clean` Neovim with the built-in `habamax`
+theme, highlighting, and `:InspectTree` already active on that dialect's
+`orders` fixture. It does not load or write to your normal Neovim
+configuration, data, cache, or state directories. Pass another source file
+after `--`:
 
 ```bash
 npm run demo:nvim -- fixtures/dds-pf/keys.pf
+npm run demo:nvim:lf -- fixtures/dds-lf/join.lf
+npm run demo:nvim:icff -- fixtures/dds-icff/columns.icff
 ```
 
 The temporary parser is removed when Neovim exits. The command requires Neovim

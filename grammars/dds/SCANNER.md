@@ -17,9 +17,10 @@ ordinary grammar tokens. This separation is important:
   tail without owning language semantics.
 
 The DDS grammars expose sequence, name, reference, length, data type, decimals,
-usage, and functions-area nodes. Functions-area keywords and arguments are
-parsed by the generated dialect grammar after the scanner positions the lexer
-at column 45. This keeps each dialect's keyword set in tracked JSON and out of
+usage, and functions-area nodes. Dialects that use columns 7–16 also expose a
+validated conditioning field. Functions-area keywords and arguments are parsed
+by the generated dialect grammar after the scanner positions the lexer at
+column 45. This keeps each dialect's keyword set in tracked JSON and out of
 scanner C code.
 
 External scanner tokens must not consume input and then return `false`.

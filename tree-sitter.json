@@ -15,6 +15,14 @@
       "path": "grammars/dds/lf",
       "file-types": ["lf", "lf38"],
       "highlights": "grammars/dds/lf/queries/highlights.scm"
+    },
+    {
+      "name": "dds_icff",
+      "camelcase": "DdsIcff",
+      "scope": "source.dds.icff",
+      "path": "grammars/dds/icff",
+      "file-types": ["icff"],
+      "highlights": "grammars/dds/icff/queries/highlights.scm"
     }
   ],
   "metadata": {

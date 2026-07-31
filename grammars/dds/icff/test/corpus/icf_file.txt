@@ -1,0 +1,103 @@
+==================
+Conditioning indicators and record types
+==================
+
+00010A          R CATCHALL
+00020AA 03 04N05                            ALWWRT
+00030AO 06                                  RQSWRT
+00040A          H HELP
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (record_format
+      (name_type)
+      (name)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (help_record
+      (name_type)
+      (name))))
+
+==================
+ICF data types and usage
+==================
+
+00010A            UNTCST         6S 2
+00020A            PGMNME        10A  P
+00030A            RSPCOD         2A  B
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage))))

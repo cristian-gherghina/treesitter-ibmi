@@ -2,6 +2,7 @@
 
 module.exports = function defineGrammar({
   name,
+  conditioning = false,
   recordTypes,
   dataTypes,
   usage,
@@ -29,6 +30,8 @@ module.exports = function defineGrammar({
       source_file: ($) => repeat(choice($.comment, $.record, $._newline)),
 
       form_type: () => "A",
+      conditioning: () =>
+        token(/[ AO][ N][0-9 ]{2}[ N][0-9 ]{2}[ N][0-9 ]{2}/),
       reference: () => token(/[ R]/),
       data_type: () => token(new RegExp(`[ ${dataTypes}]`)),
       usage: () => token(new RegExp(`[ ${usage}]`)),
@@ -95,7 +98,7 @@ module.exports = function defineGrammar({
           choice(
             $._newline,
             seq(
-              $._to_name_type,
+              conditioning ? $.conditioning : $._to_name_type,
               choice(
                 $._newline,
                 ...recordTypes.map(({ rule }) => $[rule]),
