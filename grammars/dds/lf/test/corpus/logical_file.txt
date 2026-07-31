@@ -137,3 +137,96 @@ Logical-file usage values
       (data_type)
       (decimals)
       (usage))))
+
+==================
+Multiple and nested function arguments
+==================
+
+00010A          R JOINED                     JFILE(PF1 PF2) TEXT('Joined view')
+00020A          J                            JOIN(PF1 PF2)
+00030A                                       JFLD(KEY1 KEY2)
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (record_format
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)
+            (identifier)))
+        (keyword
+          (function_keyword)
+          (argument_list
+            (quoted_text))))))
+  (record
+    (sequence)
+    (form_type)
+    (join_specification
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)
+            (identifier))))))
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)
+            (identifier)))))))
+
+==================
+Short record and ignored tail
+==================
+
+00010A
+00020A            FIELD          5A                                             IGNORED
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type))
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions))))

@@ -101,3 +101,171 @@ ICF data types and usage
       (data_type)
       (decimals)
       (usage))))
+
+==================
+All conditioning positions
+==================
+
+00010A  01                                  CONFIRM
+00020A N02                                  DETACH
+00030AA 03 04N05                            ALWWRT
+00040AO 06                                  RQSWRT
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword))))))
+
+==================
+Nested and continued arguments
+==================
+
+00010A          R CONTROL                    SECURITY(2 'PASSWRD' +
+00020A                                      3 'USRID')
+00030A                                      EVOKE(MYLIB/SOMEPGM) TIMER(001500)
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (record_format
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (number)
+            (quoted_text)
+            (continuation))))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (number)
+        (quoted_text))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)
+            (identifier)))
+        (keyword
+          (function_keyword)
+          (argument_list
+            (number)))))))
+
+==================
+Short record and ignored tail
+==================
+
+00010A
+00020A            FIELD          5A                                             IGNORED
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions))))

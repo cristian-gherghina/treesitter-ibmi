@@ -146,3 +146,199 @@ Display usage values
       (data_type)
       (decimals)
       (usage))))
+
+==================
+Absolute and relative screen positions
+==================
+
+00010A                                  1 25'ABSOLUTE'
+00020A                                    +2'RELATIVE'
+00030A            FIELD          5A  B 10 20
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (quoted_text))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (quoted_text))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position))))
+
+==================
+Help record and nested arguments
+==================
+
+00010A          H HELP
+00020A                                      WDWTITLE((*TEXT 'Help') (*COLOR RED))
+00030A                                      CHCSLT((*COLOR PNK) (*DSPATR RI))
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (help_specification
+      (name_type)
+      (name)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (special_value)
+            (quoted_text)))
+        (special_value)
+        (identifier))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (special_value)
+            (identifier)))
+        (special_value)
+        (identifier)))))
+
+==================
+Continued arguments and ignored tail
+==================
+
+00010A          R WINDOW
+00020A                                      VALUES('A' +
+00030A                                      'B')
+00040A                                      DSPATR(HI)                           IGNORED
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (record_format
+      (name_type)
+      (name)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (quoted_text)
+            (continuation))))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (quoted_text))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)))))))

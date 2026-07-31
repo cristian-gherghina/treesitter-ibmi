@@ -36,3 +36,41 @@ Invalid conditioning character
     (ERROR
       (identifier)
       (name))))
+
+==================
+Logical-file key type is invalid
+==================
+
+00010A          K BADNAME
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (ERROR
+      (identifier)
+      (name))))
+
+==================
+Invalid ICF data type
+==================
+
+00010A            FLD1         132X
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (ERROR
+        (identifier)))))

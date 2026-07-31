@@ -20,3 +20,66 @@ Display-file input usage is invalid
       (decimals)
       (ERROR
         (identifier)))))
+
+==================
+Display-file help type is invalid
+==================
+
+00010A          H BADNAME
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (ERROR
+      (identifier)
+      (name))))
+
+==================
+Invalid printer data type
+==================
+
+00010A            ACCOUNT        6B 0O  4  2
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (ERROR
+        (identifier)
+        (decimals)
+        (identifier)))))
+
+==================
+Invalid printer line
+==================
+
+00010A            ACCOUNT        6S 0O  X  2
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (ERROR))))

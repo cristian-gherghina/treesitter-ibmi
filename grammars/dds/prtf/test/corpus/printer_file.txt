@@ -120,3 +120,176 @@ Printer data types and output usage
       (usage)
       (location_line)
       (location_position))))
+
+==================
+Absolute and relative print positions
+==================
+
+00010A                                  1 29'ABSOLUTE'
+00020A                                    +2'RELATIVE'
+00030A                                    +1PAGNBR EDTCDE(Z)
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (quoted_text))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (quoted_text))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (keyword
+          (function_keyword))
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)))))))
+
+==================
+Nested and continued arguments
+==================
+
+00010A          R REPORT
+00020A                                      CHRSIZ(2 -
+00030A                                      2)
+00040A                                      OVERLAY(QGPL/MYOVL 1.0 2.0)
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (record_format
+      (name_type)
+      (name)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (number)
+            (continuation))))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (number))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)
+            (identifier)
+            (number)
+            (number)))))))
+
+==================
+Short record and ignored tail
+==================
+
+00010A
+00020A            FIELD          5A  O    +2                                  IGNORED
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (identifier)))))

@@ -19,3 +19,39 @@ Physical-file-only usage is invalid
       (decimals)
       (ERROR
         (identifier)))))
+
+==================
+Display-file name type is invalid
+==================
+
+00010A          H BADNAME
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (ERROR
+      (identifier)
+      (name))))
+
+==================
+Invalid logical-file data type
+==================
+
+00010A            INPUT        100X
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (ERROR
+        (identifier)))))

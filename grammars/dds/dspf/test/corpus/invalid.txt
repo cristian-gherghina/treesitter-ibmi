@@ -43,3 +43,43 @@ Logical-file-only usage is invalid
       (decimals)
       (ERROR
         (identifier)))))
+
+==================
+Logical-file key type is invalid
+==================
+
+00010A          K BADNAME
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (ERROR
+      (identifier)
+      (name))))
+
+==================
+Invalid screen line
+==================
+
+00010A            CUSTNO         6S 0I  X 10
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (ERROR))))
