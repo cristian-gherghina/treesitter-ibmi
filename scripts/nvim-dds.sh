@@ -23,6 +23,10 @@ case "$dialect" in
     extensions="dspf,dspf38"
     default_source="$repo_root/fixtures/dds-dspf/orders.dspf"
     ;;
+  prtf)
+    extensions="prtf,prtf38"
+    default_source="$repo_root/fixtures/dds-prtf/orders.prtf"
+    ;;
   *)
     echo "Unsupported DDS dialect: $dialect" >&2
     exit 2

@@ -19,6 +19,7 @@ npm run demo:nvim:pf
 npm run demo:nvim:lf
 npm run demo:nvim:icff
 npm run demo:nvim:dspf
+npm run demo:nvim:prtf
 ```
 
 Each command opens a separate `--clean` Neovim with the built-in `habamax`
@@ -32,6 +33,7 @@ npm run demo:nvim -- fixtures/dds-pf/keys.pf
 npm run demo:nvim:lf -- fixtures/dds-lf/join.lf
 npm run demo:nvim:icff -- fixtures/dds-icff/columns.icff
 npm run demo:nvim:dspf -- fixtures/dds-dspf/subfiles.dspf
+npm run demo:nvim:prtf -- fixtures/dds-prtf/positioning.prtf
 ```
 
 The temporary parser is removed when Neovim exits. The command requires Neovim

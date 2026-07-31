@@ -31,6 +31,14 @@
       "path": "grammars/dds/dspf",
       "file-types": ["dspf", "dspf38"],
       "highlights": "grammars/dds/dspf/queries/highlights.scm"
+    },
+    {
+      "name": "dds_prtf",
+      "camelcase": "DdsPrtf",
+      "scope": "source.dds.prtf",
+      "path": "grammars/dds/prtf",
+      "file-types": ["prtf", "prtf38"],
+      "highlights": "grammars/dds/prtf/queries/highlights.scm"
     }
   ],
   "metadata": {

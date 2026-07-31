@@ -20,3 +20,26 @@ ICF-only data type is invalid
         (identifier)
         (decimals)
         (identifier)))))
+
+==================
+Logical-file-only usage is invalid
+==================
+
+00010A            CUSTNO         6S 0N  3 10
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (ERROR
+        (identifier)))))

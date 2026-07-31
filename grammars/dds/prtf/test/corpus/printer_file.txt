@@ -1,0 +1,122 @@
+==================
+Conditioning and print location
+==================
+
+00010A          R HEADER
+00020A  01        ACCOUNT        6S 0O  4  2
+00030A                                  1 29'CUSTOMER MASTER FILE'
+00040AO 06                                  SPACEA(2)
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (record_format
+      (name_type)
+      (name)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (quoted_text))))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (number)))))))
+
+==================
+Printer data types and output usage
+==================
+
+00010A            CUSTNAME      30A  O    +2
+00020A            FLOATNUM       8F  O    +2
+00030A            ZONED          7Z  O    +2
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position)))
+  (record
+    (sequence)
+    (form_type)
+    (conditioning)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (location_line)
+      (location_position))))
