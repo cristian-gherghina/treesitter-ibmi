@@ -56,4 +56,4 @@ XDG_CACHE_HOME="$temp_dir/nvim/cache" \
 XDG_CONFIG_HOME="$temp_dir/nvim/config" \
 XDG_DATA_HOME="$temp_dir/nvim/data" \
 XDG_STATE_HOME="$temp_dir/nvim/state" \
-  nvim --clean -u "$repo_root/editors/nvim/dds-demo.lua" "$source_file"
+  nvim --clean -u "$repo_root/editors/nvim/parser-demo.lua" "$source_file"

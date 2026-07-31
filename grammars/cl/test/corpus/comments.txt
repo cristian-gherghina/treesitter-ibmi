@@ -1,0 +1,21 @@
+==================
+Block comments and empty lines
+==================
+
+/* comment */
+
+PGM
+/* another
+   comment */
+ENDPGM
+
+---
+
+(source_file
+  (comment)
+  (program
+    (statement
+      (command))
+    (comment)
+    (statement
+      (command))))

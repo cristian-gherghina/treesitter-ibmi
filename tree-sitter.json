@@ -39,6 +39,16 @@
       "path": "grammars/dds/prtf",
       "file-types": ["prtf", "prtf38"],
       "highlights": "grammars/dds/prtf/queries/highlights.scm"
+    },
+    {
+      "name": "ibmi_cl",
+      "camelcase": "IbmiCl",
+      "scope": "source.ibmi.cl",
+      "path": "grammars/cl",
+      "file-types": ["cl", "clle", "clp", "clp38"],
+      "highlights": "grammars/cl/queries/highlights.scm",
+      "folds": "grammars/cl/queries/folds.scm",
+      "indents": "grammars/cl/queries/indents.scm"
     }
   ],
   "metadata": {

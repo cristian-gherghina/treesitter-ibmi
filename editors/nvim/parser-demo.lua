@@ -1,4 +1,4 @@
--- Minimal, isolated Neovim configuration for visually testing a DDS parser.
+-- Minimal, isolated Neovim configuration for visually testing a parser.
 
 local language = assert(os.getenv("TS_IBMI_LANGUAGE"))
 local parser_path = assert(os.getenv("TS_IBMI_PARSER"))

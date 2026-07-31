@@ -1,3 +1,2 @@
-grammars/**/src/parser.c linguist-generated=true
-grammars/**/src/grammar.json linguist-generated=true
-grammars/**/src/node-types.json linguist-generated=true
+grammars/**/*.c linguist-generated=true
+fixtures/** linguist-vendored=true

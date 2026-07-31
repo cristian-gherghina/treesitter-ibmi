@@ -57,20 +57,54 @@ for (const name of fixtureNames) {
   checked += 1;
 }
 
-// Confirm PF incremental edits reject invalid columns and accept a valid one.
+// Exercise incremental edits for shared and dialect-specific column fields.
 let incrementalChecks = 0;
-if (dialect === "pf") {
-  const incrementalFixture = path.join(fixtureRoot, "columns.pf");
-  for (const edit of ["7,5 1 B", "7,16 1 M", "9,34 1 X"]) {
-    if (parse([incrementalFixture, "--quiet", "--edits", edit])) {
-      throw new Error(`incremental edit should produce an error: ${edit}`);
+const incrementalCases = {
+  pf: {
+    fixture: "columns.pf",
+    invalid: [["7,5 1 B"], ["7,16 1 M"], ["9,34 1 X"]],
+    valid: [["9,34 1 S"]],
+  },
+  icff: {
+    fixture: "columns.icff",
+    invalid: [["20,8 1 X"]],
+    valid: [["20,8 1 9"], ["20,8 1 X", "20,8 1 0"]],
+  },
+  dspf: {
+    fixture: "columns.dspf",
+    invalid: [["10,40 1 X"]],
+    valid: [["10,40 1 4"], ["10,40 1 X", "10,40 1 3"]],
+  },
+  prtf: {
+    fixture: "columns.prtf",
+    invalid: [["9,40 1 X"]],
+    valid: [["9,40 1 5"], ["9,40 1 X", "9,40 1 4"]],
+  },
+};
+const incrementalCase = incrementalCases[dialect];
+if (incrementalCase) {
+  const incrementalFixture = path.join(
+    fixtureRoot,
+    incrementalCase.fixture,
+  );
+  for (const edits of incrementalCase.invalid) {
+    const args = [incrementalFixture, "--quiet", "--edits", ...edits];
+    if (parse(args)) {
+      throw new Error(
+        `incremental edit should produce an error: ${edits.join("; ")}`,
+      );
     }
     incrementalChecks += 1;
   }
-  if (!parse([incrementalFixture, "--quiet", "--edits", "9,34 1 S"])) {
-    throw new Error("valid incremental data-type edit produced an error");
+  for (const edits of incrementalCase.valid) {
+    const args = [incrementalFixture, "--quiet", "--edits", ...edits];
+    if (!parse(args)) {
+      throw new Error(
+        `valid incremental edit produced an error: ${edits.join("; ")}`,
+      );
+    }
+    incrementalChecks += 1;
   }
-  incrementalChecks += 1;
 }
 
 // Capture every keyword recognized across the dialect's fixtures.

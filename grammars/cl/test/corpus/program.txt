@@ -1,0 +1,187 @@
+==================
+Program, declarations, and labels
+==================
+
+PGM PARM(&NAME)
+DCL VAR(&NAME) TYPE(*CHAR) LEN(10)
+START: CHGVAR VAR(&NAME) VALUE('IBM i')
+ENDPGM
+
+---
+
+(source_file
+  (program
+    (statement
+      (command)
+      (parameter
+        (identifier)
+        (argument_list
+          (variable))))
+    (statement
+      (command)
+      (parameter
+        (identifier)
+        (argument_list
+          (variable)))
+      (parameter
+        (identifier)
+        (argument_list
+          (special_value)))
+      (parameter
+        (identifier)
+        (argument_list
+          (number))))
+    (statement
+      (label
+        (identifier))
+      (command)
+      (parameter
+        (identifier)
+        (argument_list
+          (variable)))
+      (parameter
+        (identifier)
+        (argument_list
+          (string))))
+    (statement
+      (command))))
+
+==================
+Control commands and nested parameters
+==================
+
+IF COND(&COUNT *GT 0) THEN(DO)
+SELECT
+WHEN COND(&COUNT *EQ 1) THEN(RETURN)
+OTHERWISE CMD(CHGVAR VAR(&COUNT) VALUE(0))
+ENDSELECT
+ENDDO
+
+---
+
+(source_file
+  (statement
+    (command)
+    (parameter
+      (identifier)
+      (argument_list
+        (variable)
+        (special_value)
+        (number)))
+    (parameter
+      (identifier)
+      (argument_list
+        (identifier))))
+  (select_block
+    (statement
+      (command))
+    (statement
+      (command)
+      (parameter
+        (identifier)
+        (argument_list
+          (variable)
+          (special_value)
+          (number)))
+      (parameter
+        (identifier)
+        (argument_list
+          (identifier))))
+    (statement
+      (command)
+      (parameter
+        (identifier)
+        (argument_list
+          (identifier)
+          (parameter
+            (identifier)
+            (argument_list
+              (variable)))
+          (parameter
+            (identifier)
+            (argument_list
+              (number))))))
+    (statement
+      (command)))
+  (statement
+    (command)))
+
+==================
+Built-ins, operators, and special values
+==================
+
+CHGVAR VAR(&TEXT) VALUE(%TRIM(&TEXT) *BCAT %CHAR(&COUNT))
+IF COND(*NOT &COUNT >= 1 *AND &COUNT <= 9) THEN(RETURN)
+
+---
+
+(source_file
+  (statement
+    (command)
+    (parameter
+      (identifier)
+      (argument_list
+        (variable)))
+    (parameter
+      (identifier)
+      (argument_list
+        (builtin_call
+          (builtin)
+          (argument_list
+            (variable)))
+        (special_value)
+        (builtin_call
+          (builtin)
+          (argument_list
+            (variable))))))
+  (statement
+    (command)
+    (parameter
+      (identifier)
+      (argument_list
+        (special_value)
+        (variable)
+        (operator)
+        (number)
+        (special_value)
+        (variable)
+        (operator)
+        (number)))
+    (parameter
+      (identifier)
+      (argument_list
+        (identifier)))))
+
+==================
+Continuation and hexadecimal string
+==================
+
+CHGVAR VAR(&TEXT) VALUE('FIRST' +
+                       *BCAT 'SECOND')
+CHGVAR VAR(&TEXT) VALUE(X'C1C2')
+
+---
+
+(source_file
+  (statement
+    (command)
+    (parameter
+      (identifier)
+      (argument_list
+        (variable)))
+    (parameter
+      (identifier)
+      (argument_list
+        (string)
+        (special_value)
+        (string))))
+  (statement
+    (command)
+    (parameter
+      (identifier)
+      (argument_list
+        (variable)))
+    (parameter
+      (identifier)
+      (argument_list
+        (hex_string)))))

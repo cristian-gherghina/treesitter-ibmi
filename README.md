@@ -39,6 +39,13 @@ npm run demo:nvim:prtf -- fixtures/dds-prtf/positioning.prtf
 The temporary parser is removed when Neovim exits. The command requires Neovim
 with built-in Tree-sitter support.
 
+The CL parser has the same isolated preview:
+
+```bash
+npm run demo:nvim:cl
+npm run demo:nvim:cl -- fixtures/cl/builtins.clle
+```
+
 ## IBM language references
 
 | Language | Authoritative reference |
