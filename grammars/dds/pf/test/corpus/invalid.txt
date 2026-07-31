@@ -11,6 +11,18 @@ Invalid form type
   (ERROR))
 
 ==================
+Tab inside a positional field
+:error
+==================
+
+00010A            FIE	D          9P 0
+
+---
+
+(source_file
+  (ERROR))
+
+==================
 Invalid name type
 :error
 ==================

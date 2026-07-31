@@ -3,6 +3,27 @@
 Tree-sitter grammars for IBM i languages: RPGLE, RPG/400, CL, CMD, DDS, ILE
 COBOL, MI, binder language, and UIM panel groups.
 
+## Testing in Neovim
+
+For a quick isolated view using a temporary parser and a clean Neovim config:
+
+```bash
+npm run demo:nvim
+```
+
+This opens a separate `--clean` Neovim with the built-in `habamax` theme,
+highlighting, and `:InspectTree` already active on
+`fixtures/dds-pf/orders.pf`. It does not load or write to your normal Neovim
+configuration, data, cache, or state directories. Pass another PF, PF38, or
+DDS file after `--`:
+
+```bash
+npm run demo:nvim -- fixtures/dds-pf/keys.pf
+```
+
+The temporary parser is removed when Neovim exits. The command requires Neovim
+with built-in Tree-sitter support.
+
 ## IBM language references
 
 | Language | Authoritative reference |

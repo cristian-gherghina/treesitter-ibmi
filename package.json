@@ -3,8 +3,12 @@
   "private": true,
   "scripts": {
     "generate:dds-pf": "tree-sitter generate --abi 15 --output grammars/dds/pf/src grammars/dds/pf/grammar.js",
+    "demo:nvim": "bash scripts/nvim-dds-pf.sh",
     "test:dds-pf": "tree-sitter test -p grammars/dds/pf",
-    "test": "npm run test:dds-pf"
+    "test:fixtures:dds-pf": "node scripts/test-dds-pf.mjs",
+    "test:queries:dds-pf": "tree-sitter query grammars/dds/pf/queries/highlights.scm fixtures/dds-pf/alt-ext.dds",
+    "check:generated": "npm run generate:dds-pf && git diff --exit-code -- grammars/dds/pf/src",
+    "test": "npm run test:dds-pf && npm run test:fixtures:dds-pf && npm run test:queries:dds-pf"
   },
   "devDependencies": {
     "tree-sitter-cli": "0.26.11"

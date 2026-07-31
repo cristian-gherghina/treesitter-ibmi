@@ -8,7 +8,9 @@ Comment record
 
 (source_file
   (comment
-    (comment_record)))
+    (sequence)
+    (form_type)
+    (comment_text)))
 
 ==================
 Data records
@@ -22,11 +24,27 @@ Data records
 
 (source_file
   (record
-    (data_record))
+    (sequence)
+    (form_type)
+    (record_format
+      (name_type)
+      (name)))
   (record
-    (data_record))
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)))
   (record
-    (data_record)))
+    (sequence)
+    (form_type)
+    (key_field
+      (name_type)
+      (name))))
 
 ==================
 Short valid record
@@ -38,4 +56,53 @@ Short valid record
 
 (source_file
   (record
-    (data_record)))
+    (sequence)
+    (form_type)))
+
+==================
+Columns after 80 are ignored
+==================
+
+00010A            FIELD          9P 0                                           IGNORED
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions))))
+
+==================
+Non-ASCII text in functions area
+==================
+
+00010A                                      TEXT('café')
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (quoted_text)))))))

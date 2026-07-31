@@ -1,0 +1,137 @@
+==================
+Record format and text keyword
+==================
+
+00010A          R ACCOUNT                   TEXT('Account master')
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (record_format
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (quoted_text)))))))
+
+==================
+Packed field with column heading
+==================
+
+00020A            ACCTNO         6P 0       COLHDG('Account' 'Number')
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (quoted_text)
+            (quoted_text)))))))
+
+==================
+Key field
+==================
+
+00030A          K ACCTNO                    DESCEND
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (key_field
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword))))))
+
+==================
+Referenced field
+==================
+
+00040A            CUSTNO    R               REFFLD(NAME LIB/FILE)
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (identifier)
+            (identifier)
+            (identifier)))))))
+
+==================
+Special values and numeric arguments
+==================
+
+00050A                                      DATFMT(*ISO) RANGE(0 99) ALWNULL
+
+---
+
+(source_file
+  (record
+    (sequence)
+    (form_type)
+    (field_or_file
+      (name_type)
+      (name)
+      (reference)
+      (length)
+      (data_type)
+      (decimals)
+      (usage)
+      (functions
+        (keyword
+          (function_keyword)
+          (argument_list
+            (special_value)))
+        (keyword
+          (function_keyword)
+          (argument_list
+            (number)
+            (number)))
+        (keyword
+          (function_keyword))))))
