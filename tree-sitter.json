@@ -100,12 +100,31 @@
       "injections": "grammars/rpgle/queries/injections.scm"
     },
     {
-      "name": "ibmi_db2i_sql",
-      "camelcase": "IbmiDb2iSql",
-      "scope": "source.ibmi.db2i.sql",
-      "path": "grammars/db2i",
+      "name": "ibmi_db2i_sql_rpgle",
+      "camelcase": "IbmiDb2iSqlRpgle",
+      "scope": "source.ibmi.db2i.sql.rpgle",
+      "path": "grammars/db2i-rpgle",
       "file-types": ["sql"],
-      "highlights": "grammars/db2i/queries/highlights.scm"
+      "highlights": "grammars/db2i-rpgle/queries/highlights.scm"
+    },
+    {
+      "name": "ibmi_cobol",
+      "camelcase": "IbmiCobol",
+      "scope": "source.ibmi.cobol",
+      "path": "grammars/cobol",
+      "file-types": ["cblle", "cbl", "cbl38", "sqlcbl", "sqlcblle"],
+      "highlights": "grammars/cobol/queries/highlights.scm",
+      "folds": "grammars/cobol/queries/folds.scm",
+      "indents": "grammars/cobol/queries/indents.scm",
+      "injections": "grammars/cobol/queries/injections.scm"
+    },
+    {
+      "name": "ibmi_db2i_sql_cobol",
+      "camelcase": "IbmiDb2iSqlCobol",
+      "scope": "source.ibmi.db2i.sql.cobol",
+      "path": "grammars/db2i-cobol",
+      "file-types": [],
+      "highlights": "grammars/db2i-cobol/queries/highlights.scm"
     }
   ],
   "metadata": {

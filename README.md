@@ -92,10 +92,10 @@ npm run demo:nvim:rpgle -- fixtures/rpgle/fixed/program.rpgle
 ```
 
 SQLRPGLE files expose both free `EXEC SQL` statements and fixed
-`C/EXEC SQL`...`C/END-EXEC` blocks as `ibmi_db2i_sql` injections. The Db2 for i
+`C/EXEC SQL`...`C/END-EXEC` blocks as `ibmi_db2i_sql_rpgle` injections. The Db2 for i
 parser ships in this repository, including IBM i host variables, system naming,
 special values, array syntax, 506 IBM i 7.5 reserved words, and the statement
-forms exercised by the SQLRPGLE catalogue. Its tests combine 56 focused syntax
+forms exercised by the SQLRPGLE catalogue. Its tests combine 57 focused syntax
 trees—including every supported statement family and malformed input—with 301
 statements extracted from the SQLRPGLE fixtures.
 
@@ -106,7 +106,17 @@ npm run demo:nvim:rpgle -- fixtures/rpgle/fully-free/program.sqlrpgle
 The Db2 for i parser can also be previewed directly:
 
 ```bash
-npm run demo:nvim:db2i
+npm run demo:nvim:db2i-rpgle
+```
+
+ILE COBOL and COBOL/400 reference-format sources can be previewed with the same
+isolated setup. SQL COBOL files expose `EXEC SQL` bodies through a COBOL-host
+variant of the local Db2 for i parser; CI separately parses all 160 extracted
+SQL statements with that variant:
+
+```bash
+npm run demo:nvim:cobol
+npm run demo:nvim:cobol -- fixtures/cobol/embedded-sql.sqlcblle
 ```
 
 ## IBM language references

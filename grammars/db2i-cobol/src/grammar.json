@@ -1,6 +1,6 @@
 {
   "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
-  "name": "ibmi_db2i_sql",
+  "name": "ibmi_db2i_sql_cobol",
   "word": "identifier",
   "rules": {
     "source_file": {
@@ -304,7 +304,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": ":[A-Za-z_#$@§][A-Za-z0-9_#$@§.]*"
+        "value": ":[A-Za-z_#$@§][A-Za-z0-9_#$@§.-]*"
       }
     },
     "special_value": {

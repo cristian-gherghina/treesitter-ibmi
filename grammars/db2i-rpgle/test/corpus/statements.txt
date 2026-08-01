@@ -36,3 +36,22 @@ select coalesce(cusbal, 0), current timestamp
     (identifier)
     (operator)
     (string)))
+
+==================
+RPG host variable followed by subtraction
+==================
+
+select :rpgValue-other from SYSIBM.SYSDUMMY1;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (host_variable)
+    (operator)
+    (identifier)
+    (keyword)
+    (identifier)
+    (punctuation)
+    (identifier)))

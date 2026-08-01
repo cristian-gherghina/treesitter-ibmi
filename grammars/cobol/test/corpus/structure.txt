@@ -1,0 +1,59 @@
+==================
+Divisions, sections, data, and paragraphs
+==================
+
+000100 IDENTIFICATION DIVISION.
+000200 PROGRAM-ID. SAMPLE.
+000300 DATA DIVISION.
+000400 WORKING-STORAGE SECTION.
+000500 01  CUSTOMER-RECORD.
+000600     05 CUSTOMER-NAME PIC X(30).
+000700 PROCEDURE DIVISION.
+000800 MAIN-PARA.
+000900     DISPLAY "HELLO".
+
+---
+
+(source_file
+  (fixed_prefix)
+  (division_header
+    (keyword)
+    (keyword))
+  (fixed_prefix)
+  (sentence
+    (picture)
+    (word))
+  (sentence
+    (picture)
+    (word))
+  (fixed_prefix)
+  (division_header
+    (keyword)
+    (keyword))
+  (fixed_prefix)
+  (sentence
+    (word)
+    (picture)
+    (word))
+  (fixed_prefix)
+  (data_description_entry
+    (level_number)
+    (word))
+  (fixed_prefix)
+  (data_description_entry
+    (level_number)
+    (word)
+    (picture)
+    (word)
+    (picture)
+    (fixed_prefix)
+    (picture)
+    (word)
+    (word))
+  (fixed_prefix)
+  (paragraph_header
+    (word))
+  (fixed_prefix)
+  (sentence
+    (word)
+    (string)))

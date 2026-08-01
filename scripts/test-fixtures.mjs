@@ -80,6 +80,16 @@ function freeSqlStatements(source) {
   return statements;
 }
 
+// Extract reference-format COBOL EXEC SQL bodies and omit COBOL comment lines.
+function cobolSqlStatements(source) {
+  const content = source.split(/\r?\n/)
+    .filter((line) => line[6] !== "*" && line[6] !== "/")
+    .map((line) => line.slice(7, 72))
+    .join("\n");
+  return [...content.matchAll(/\bEXEC\s+SQL\b([\s\S]*?)\bEND-EXEC\b/gi)]
+    .map((match) => match[1].trim());
+}
+
 const fixtureNames = fs
   .readdirSync(fixtureRoot)
   .filter((name) => fs.statSync(path.join(fixtureRoot, name)).isFile())
@@ -87,7 +97,7 @@ const fixtureNames = fs
   .sort();
 
 // Db2 coverage extracts embedded statements from every SQLRPGLE source layout.
-if (parser === "db2i") {
+if (parser === "db2i-rpgle") {
   const rpgleRoot = path.join(repoRoot, "fixtures", "rpgle");
   const sources = fs.readdirSync(rpgleRoot, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
@@ -95,7 +105,7 @@ if (parser === "db2i") {
       .filter((name) => name.endsWith(".sqlrpgle"))
       .map((name) => path.join(rpgleRoot, entry.name, name)))
     .sort();
-  const outputRoot = path.join(cacheRoot, "db2i-fixtures");
+  const outputRoot = path.join(cacheRoot, "db2i-rpgle-fixtures");
   fs.rmSync(outputRoot, { recursive: true, force: true });
   fs.mkdirSync(outputRoot, { recursive: true });
 
@@ -166,6 +176,25 @@ if (parser === "db2i") {
 } else {
   run(["parse", "-p", grammar, ...fixtureNames.map((name) => path.join(fixtureRoot, name)), "--quiet"]);
 
+  // SQL COBOL bodies must also parse with this repository's Db2 for i grammar.
+  let cobolSqlCount = 0;
+  if (parser === "cobol") {
+    const outputRoot = path.join(cacheRoot, "cobol-sql-fixtures");
+    fs.rmSync(outputRoot, { recursive: true, force: true });
+    fs.mkdirSync(outputRoot, { recursive: true });
+    const outputs = [];
+    for (const name of fixtureNames.filter((value) => value.includes("sqlcbl"))) {
+      const source = fs.readFileSync(path.join(fixtureRoot, name), "utf8");
+      cobolSqlStatements(source).forEach((statement, index) => {
+        const output = path.join(outputRoot, `${name}-${index + 1}.sql`);
+        fs.writeFileSync(output, `${statement}\n`);
+        outputs.push(output);
+      });
+    }
+    run(["parse", "-p", path.join(repoRoot, "grammars", "db2i-cobol"), ...outputs, "--quiet"]);
+    cobolSqlCount = outputs.length;
+  }
+
   // Fixed RPGLE must continue to recognize the form type specifically in column 6.
   if (parser === "rpgle-fixed") {
     const source = path.join(fixtureRoot, "control.rpgle");
@@ -185,8 +214,9 @@ if (parser === "db2i") {
     if (missing.length > 0) throw new Error(`generated commands missing: ${missing.join(", ")}`);
     console.log(`CL fixtures: ${fixtureNames.length}; generated commands: ${commands.length}`);
   } else {
-    const labels = { bnd: "Binder", mi: "MI", cmd: "CMD", pnlgrp: "PNLGRP", rpgle: "RPGLE fully-free", "rpgle-free": "RPGLE column-limited free", "rpgle-fixed": "RPGLE fixed-form", "rpgle-mixed": "RPGLE mixed-format" };
+    const labels = { bnd: "Binder", mi: "MI", cmd: "CMD", pnlgrp: "PNLGRP", cobol: "ILE COBOL/COBOL/400", rpgle: "RPGLE fully-free", "rpgle-free": "RPGLE column-limited free", "rpgle-fixed": "RPGLE fixed-form", "rpgle-mixed": "RPGLE mixed-format" };
     const suffix = parser === "rpgle-fixed" ? "; column edits: 2" : "";
-    console.log(`${labels[parser] ?? parser} fixtures: ${fixtureNames.length}${suffix}`);
+    const sqlSuffix = parser === "cobol" ? `; SQL statements: ${cobolSqlCount}` : "";
+    console.log(`${labels[parser] ?? parser} fixtures: ${fixtureNames.length}${suffix}${sqlSuffix}`);
   }
 }

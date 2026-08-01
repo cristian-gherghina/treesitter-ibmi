@@ -1,0 +1,61 @@
+==================
+Comments, continuation, and embedded SQL
+==================
+
+      *fixed comment
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. SQLSAMPLE.
+       PROCEDURE DIVISION.
+       MAIN-PARA.
+           EXEC SQL
+             SELECT NAME INTO :CUSTOMER-NAME FROM CUSTOMERS
+           END-EXEC.
+           DISPLAY "a long messag
+      -    "e".
+           *> floating comment
+
+---
+
+(source_file
+  (fixed_comment)
+  (fixed_prefix)
+  (division_header
+    (keyword)
+    (keyword))
+  (fixed_prefix)
+  (sentence
+    (picture)
+    (word))
+  (sentence
+    (picture)
+    (word))
+  (fixed_prefix)
+  (sentence
+    (picture)
+    (word)
+    (word))
+  (fixed_prefix)
+  (paragraph_header
+    (word))
+  (fixed_prefix)
+  (embedded_sql_statement
+    (keyword)
+    (keyword)
+    (fixed_prefix)
+    (sql_body
+      (sql_text)
+      (sql_text)
+      (sql_text)
+      (sql_text)
+      (sql_text)
+      (sql_text))
+    (fixed_prefix)
+    (keyword))
+  (fixed_prefix)
+  (sentence
+    (word)
+    (continued_string_fragment)
+    (fixed_continuation)
+    (string))
+  (fixed_prefix)
+  (floating_comment))
