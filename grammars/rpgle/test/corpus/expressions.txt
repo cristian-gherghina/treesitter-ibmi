@@ -1,0 +1,61 @@
+==================
+Expressions and calls
+==================
+
+**FREE
+total = order.lines(index).amount * %abs(rate + 1);
+callp calculate(total : *on);
+calculate(total : *off);
+
+---
+
+(source_file
+  (fully_free_marker)
+  (assignment_statement
+    (identifier)
+    (assignment_operator)
+    (expression
+      (binary_expression
+        (expression
+          (member_expression
+            (expression
+              (call_expression
+                (member_expression
+                  (expression
+                    (identifier))
+                  (identifier))
+                (argument_list
+                  (expression
+                    (identifier)))))
+            (identifier)))
+        (operator)
+        (expression
+          (call_expression
+            (builtin_name)
+            (argument_list
+              (expression
+                (binary_expression
+                  (expression
+                    (identifier))
+                  (operator)
+                  (expression
+                    (number))))))))))
+  (operation_statement
+    (opcode
+      (identifier))
+    (expression
+      (call_expression
+        (identifier)
+        (argument_list
+          (expression
+            (identifier))
+          (expression
+            (special_value))))))
+  (expression_statement
+    (call_expression
+      (identifier)
+      (argument_list
+        (expression
+          (identifier))
+        (expression
+          (special_value))))))

@@ -17,6 +17,8 @@ case "$parser" in
   mi)       language="ibmi_mi";  grammar="mi";       extensions="mi";            default_source="fixtures/mi/program.mi" ;;
   cmd)      language="ibmi_cmd"; grammar="cmd";      extensions="cmd";           default_source="fixtures/cmd/command.cmd" ;;
   pnlgrp)   language="ibmi_pnlgrp"; grammar="pnlgrp"; extensions="pnlgrp";        default_source="fixtures/pnlgrp/panel.pnlgrp" ;;
+  rpgle)    language="ibmi_rpgle"; grammar="rpgle"; extensions="rpgle,rpgleinc,sqlrpgle"; default_source="fixtures/rpgle/fully-free/program.rpgle" ;;
+  db2i)     language="ibmi_db2i_sql"; grammar="db2i"; extensions="sql"; default_source="fixtures/db2i/select.sql" ;;
   *)
     echo "Unsupported parser: $parser" >&2
     exit 2

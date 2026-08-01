@@ -10,10 +10,18 @@ const repoRoot = path.resolve(import.meta.dirname, "..");
 const cli = path.join(repoRoot, "node_modules", "tree-sitter-cli", "cli.js");
 const parser = process.argv[2];
 const ddsDialect = parser?.startsWith("dds-") ? parser.slice(4) : null;
+const rpgleFixtureDirs = {
+  rpgle: "fully-free",
+  "rpgle-free": "free",
+  "rpgle-fixed": "fixed",
+  "rpgle-mixed": "mixed",
+};
 const grammar = ddsDialect
   ? path.join(repoRoot, "grammars", "dds", ddsDialect)
-  : path.join(repoRoot, "grammars", parser ?? "");
-const fixtureRoot = path.join(repoRoot, "fixtures", parser ?? "");
+  : path.join(repoRoot, "grammars", parser?.startsWith("rpgle") ? "rpgle" : parser ?? "");
+const fixtureRoot = parser?.startsWith("rpgle")
+  ? path.join(repoRoot, "fixtures", "rpgle", rpgleFixtureDirs[parser] ?? "")
+  : path.join(repoRoot, "fixtures", parser ?? "");
 const cacheRoot = path.join(repoRoot, ".cache");
 
 if (!parser || !fs.existsSync(grammar) || !fs.existsSync(fixtureRoot)) {
@@ -36,13 +44,77 @@ function run(args, allowFailure = false) {
   }
 }
 
+// Extract SQL between fixed-form C/EXEC SQL and C/END-EXEC directives.
+function fixedSqlStatements(source) {
+  const statements = [];
+  let current = null;
+  for (const line of source.split(/\r?\n/)) {
+    if (/^.{5}[Cc]\/EXEC\s+SQL\b/i.test(line)) {
+      current = [line.slice(15, 80)];
+    } else if (current && /^.{5}[Cc]\+/.test(line)) {
+      current.push(line.slice(7, 80));
+    } else if (current && /^.{5}[A-Za-z ]\*/.test(line)) {
+      continue;
+    } else if (current && /^.{5}[Cc]\/END-EXEC\b/i.test(line)) {
+      statements.push(current.join("\n"));
+      current = null;
+    }
+  }
+  return statements;
+}
+
+// Extract free-form SQL bodies beginning with EXEC SQL and ending at semicolon.
+function freeSqlStatements(source) {
+  const statements = [];
+  const lines = source.split(/\r?\n/);
+  for (let index = 0; index < lines.length; index += 1) {
+    const match = lines[index].match(/^\s*exec\s+sql\b(.*)$/i);
+    if (!match) continue;
+    const body = [match[1]];
+    while (!body.join("\n").includes(";") && index + 1 < lines.length) {
+      body.push(lines[index += 1]);
+    }
+    const joined = body.join("\n");
+    statements.push(joined.slice(0, joined.indexOf(";")));
+  }
+  return statements;
+}
+
 const fixtureNames = fs
   .readdirSync(fixtureRoot)
   .filter((name) => fs.statSync(path.join(fixtureRoot, name)).isFile())
+  .filter((name) => !parser?.startsWith("rpgle") || /\.(rpgle|rpgleinc|sqlrpgle)$/.test(name))
   .sort();
 
+// Db2 coverage extracts embedded statements from every SQLRPGLE source layout.
+if (parser === "db2i") {
+  const rpgleRoot = path.join(repoRoot, "fixtures", "rpgle");
+  const sources = fs.readdirSync(rpgleRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .flatMap((entry) => fs.readdirSync(path.join(rpgleRoot, entry.name))
+      .filter((name) => name.endsWith(".sqlrpgle"))
+      .map((name) => path.join(rpgleRoot, entry.name, name)))
+    .sort();
+  const outputRoot = path.join(cacheRoot, "db2i-fixtures");
+  fs.rmSync(outputRoot, { recursive: true, force: true });
+  fs.mkdirSync(outputRoot, { recursive: true });
+
+  const outputs = [];
+  for (const sourcePath of sources) {
+    const source = fs.readFileSync(sourcePath, "utf8");
+    const statements = [...fixedSqlStatements(source), ...freeSqlStatements(source)];
+    statements.forEach((statement, index) => {
+      const relative = path.relative(rpgleRoot, sourcePath).replaceAll(path.sep, "-");
+      const output = path.join(outputRoot, `${relative}-${index + 1}.sql`);
+      fs.writeFileSync(output, `${statement.trim()}\n`);
+      outputs.push(output);
+    });
+  }
+
+  run(["parse", "-p", grammar, ...outputs, "--quiet"]);
+  console.log(`Db2 for i SQL fixtures: ${sources.length} SQLRPGLE files; statements: ${outputs.length}`);
 // DDS includes expected failures, incremental edits, and keyword coverage.
-if (ddsDialect) {
+} else if (ddsDialect) {
   const expectedErrors = new Set(ddsDialect === "pf" ? ["keywords.pf"] : []);
   for (const name of fixtureNames) {
     const successful = run([
@@ -94,6 +166,17 @@ if (ddsDialect) {
 } else {
   run(["parse", "-p", grammar, ...fixtureNames.map((name) => path.join(fixtureRoot, name)), "--quiet"]);
 
+  // Fixed RPGLE must continue to recognize the form type specifically in column 6.
+  if (parser === "rpgle-fixed") {
+    const source = path.join(fixtureRoot, "control.rpgle");
+    if (run(["parse", "-p", grammar, source, "--quiet", "--edits", "17,5 1 X"], true) !== null) {
+      throw new Error("invalid fixed-form type in column 6 should fail");
+    }
+    if (run(["parse", "-p", grammar, source, "--quiet", "--edits", "17,5 1 h"], true) === null) {
+      throw new Error("lowercase fixed-form type in column 6 should pass");
+    }
+  }
+
   // CL additionally verifies that parser generation retained its command table.
   if (parser === "cl") {
     const commands = JSON.parse(fs.readFileSync(path.join(repoRoot, "data", "cl-commands.json"), "utf8"));
@@ -102,7 +185,8 @@ if (ddsDialect) {
     if (missing.length > 0) throw new Error(`generated commands missing: ${missing.join(", ")}`);
     console.log(`CL fixtures: ${fixtureNames.length}; generated commands: ${commands.length}`);
   } else {
-    const labels = { bnd: "Binder", mi: "MI", cmd: "CMD", pnlgrp: "PNLGRP" };
-    console.log(`${labels[parser] ?? parser} fixtures: ${fixtureNames.length}`);
+    const labels = { bnd: "Binder", mi: "MI", cmd: "CMD", pnlgrp: "PNLGRP", rpgle: "RPGLE fully-free", "rpgle-free": "RPGLE column-limited free", "rpgle-fixed": "RPGLE fixed-form", "rpgle-mixed": "RPGLE mixed-format" };
+    const suffix = parser === "rpgle-fixed" ? "; column edits: 2" : "";
+    console.log(`${labels[parser] ?? parser} fixtures: ${fixtureNames.length}${suffix}`);
   }
 }

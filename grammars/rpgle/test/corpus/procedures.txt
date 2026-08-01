@@ -1,0 +1,89 @@
+==================
+Prototype and procedure
+==================
+
+**FREE
+dcl-pr calculate packed(11 : 2);
+  amount packed(11 : 2) const;
+end-pr;
+dcl-proc calculate export;
+  dcl-pi *n packed(11 : 2);
+    amount packed(11 : 2) const;
+  end-pi;
+  return amount * 2;
+end-proc;
+
+---
+
+(source_file
+  (fully_free_marker)
+  (prototype
+    (prototype_start
+      (keyword)
+      (identifier)
+      (expression
+        (call_expression
+          (identifier)
+          (argument_list
+            (expression
+              (number))
+            (expression
+              (number))))))
+    (parameter_declaration
+      (identifier)
+      (expression
+        (call_expression
+          (identifier)
+          (argument_list
+            (expression
+              (number))
+            (expression
+              (number)))))
+      (expression
+        (identifier)))
+    (prototype_end
+      (keyword)))
+  (procedure
+    (procedure_start
+      (keyword)
+      (identifier)
+      (expression
+        (identifier)))
+    (procedure_interface
+      (interface_start
+        (keyword)
+        (special_value)
+        (expression
+          (call_expression
+            (identifier)
+            (argument_list
+              (expression
+                (number))
+              (expression
+                (number))))))
+      (parameter_declaration
+        (identifier)
+        (expression
+          (call_expression
+            (identifier)
+            (argument_list
+              (expression
+                (number))
+              (expression
+                (number)))))
+        (expression
+          (identifier)))
+      (interface_end
+        (keyword)))
+    (operation_statement
+      (opcode
+        (identifier))
+      (expression
+        (binary_expression
+          (expression
+            (identifier))
+          (operator)
+          (expression
+            (number)))))
+    (procedure_end
+      (keyword))))

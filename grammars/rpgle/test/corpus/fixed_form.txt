@@ -1,0 +1,69 @@
+==================
+Fixed specification forms
+==================
+
+00001HOPTION(*SRCSTMT)
+00002FFILE      IF   E           K DISK
+00003DNAME             S             10A
+00004IFILE          01
+00005C                   EVAL      NAME = 'A'
+00006OQSYSPRT   H    1P
+00007PPROC            B
+00008C* calculation comment
+00009 /COPY QRPGLESRC,PROTO
+
+---
+
+(source_file
+  (fixed_control_specification
+    (fixed_keywords))
+  (fixed_file_specification
+    (fixed_file_name)
+    (fixed_file_type)
+    (fixed_file_designation)
+    (fixed_end_of_file)
+    (fixed_file_addition)
+    (fixed_file_sequence)
+    (fixed_file_format)
+    (fixed_record_length)
+    (fixed_limits_processing)
+    (fixed_key_length)
+    (fixed_record_address_type)
+    (fixed_file_organization)
+    (fixed_device))
+  (fixed_definition_specification
+    (fixed_definition_name)
+    (fixed_external_description)
+    (fixed_data_structure_type)
+    (fixed_definition_type)
+    (fixed_from_position)
+    (fixed_to_position)
+    (fixed_internal_data_type))
+  (fixed_input_specification
+    (fixed_input_file_name)
+    (fixed_input_record_control))
+  (fixed_calculation_specification
+    (fixed_control_level)
+    (fixed_conditioning_indicators)
+    (fixed_factor_1)
+    (fixed_operation)
+    (fixed_extended_factor_2))
+  (fixed_output_specification
+    (fixed_output_file_name)
+    (fixed_output_record_control))
+  (fixed_procedure_specification
+    (fixed_procedure_name))
+  (fixed_comment)
+  (fixed_directive))
+
+==================
+Columns after 80 are ignored separately
+==================
+
+00001H                                                                          source comment
+
+---
+
+(source_file
+  (fixed_control_specification
+    (fixed_keywords)))

@@ -87,6 +87,25 @@
       "highlights": "grammars/pnlgrp/queries/highlights.scm",
       "folds": "grammars/pnlgrp/queries/folds.scm",
       "indents": "grammars/pnlgrp/queries/indents.scm"
+    },
+    {
+      "name": "ibmi_rpgle",
+      "camelcase": "IbmiRpgle",
+      "scope": "source.ibmi.rpgle",
+      "path": "grammars/rpgle",
+      "file-types": ["rpgle", "rpgleinc", "sqlrpgle"],
+      "highlights": "grammars/rpgle/queries/highlights.scm",
+      "folds": "grammars/rpgle/queries/folds.scm",
+      "indents": "grammars/rpgle/queries/indents.scm",
+      "injections": "grammars/rpgle/queries/injections.scm"
+    },
+    {
+      "name": "ibmi_db2i_sql",
+      "camelcase": "IbmiDb2iSql",
+      "scope": "source.ibmi.db2i.sql",
+      "path": "grammars/db2i",
+      "file-types": ["sql"],
+      "highlights": "grammars/db2i/queries/highlights.scm"
     }
   ],
   "metadata": {

@@ -1,0 +1,59 @@
+==================
+Declarations and structures
+==================
+
+**FREE
+dcl-s total packed(11 : 2) inz(0);
+dcl-ds order qualified;
+  number packed(7 : 0);
+  name char(30);
+end-ds;
+
+---
+
+(source_file
+  (fully_free_marker)
+  (declaration_statement
+    (named_declaration
+      (declaration_keyword)
+      (identifier)
+      (expression
+        (call_expression
+          (identifier)
+          (argument_list
+            (expression
+              (number))
+            (expression
+              (number)))))
+      (expression
+        (call_expression
+          (identifier)
+          (argument_list
+            (expression
+              (number)))))))
+  (data_structure
+    (data_structure_start
+      (keyword)
+      (identifier)
+      (expression
+        (identifier)))
+    (subfield_declaration
+      (identifier)
+      (expression
+        (call_expression
+          (identifier)
+          (argument_list
+            (expression
+              (number))
+            (expression
+              (number))))))
+    (subfield_declaration
+      (identifier)
+      (expression
+        (call_expression
+          (identifier)
+          (argument_list
+            (expression
+              (number))))))
+    (data_structure_end
+      (keyword))))

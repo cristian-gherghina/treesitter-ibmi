@@ -1,0 +1,29 @@
+==================
+Compiler directives
+==================
+
+**FREE
+/copy QRPGLESRC,PROTOTYPES
+/if defined(DEBUG)
+dcl-s trace ind inz(*on);
+/endif
+
+---
+
+(source_file
+  (fully_free_marker)
+  (compiler_directive)
+  (compiler_directive)
+  (declaration_statement
+    (named_declaration
+      (declaration_keyword)
+      (identifier)
+      (expression
+        (identifier))
+      (expression
+        (call_expression
+          (identifier)
+          (argument_list
+            (expression
+              (special_value)))))))
+  (compiler_directive))

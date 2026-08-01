@@ -1,0 +1,521 @@
+==================
+ALLOCATE cursor
+==================
+
+allocate C1 cursor for result set :locator;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (host_variable)))
+
+==================
+ALTER table
+==================
+
+alter table T add column C integer;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (identifier)
+    (identifier)))
+
+==================
+CALL procedure
+==================
+
+call MYLIB/PROC(:input, :output);
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (operator)
+    (identifier)
+    (parenthesized_expression
+      (host_variable)
+      (punctuation)
+      (host_variable))))
+
+==================
+CLOSE cursor
+==================
+
+close C1;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)))
+
+==================
+COMMENT on object
+==================
+
+comment on table T is 'description';
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (string)))
+
+==================
+COMMIT transaction
+==================
+
+commit hold;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)))
+
+==================
+CONNECT database
+==================
+
+connect to :database user :user using :password;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (host_variable)
+    (keyword)
+    (host_variable)
+    (keyword)
+    (host_variable)))
+
+==================
+DEALLOCATE descriptor
+==================
+
+deallocate descriptor SQLDA1;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (identifier)))
+
+==================
+DECLARE cursor
+==================
+
+declare C1 cursor for select ID from T;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (identifier)))
+
+==================
+DELETE rows
+==================
+
+delete from T where ID = :id;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (operator)
+    (host_variable)))
+
+==================
+DESCRIBE statement
+==================
+
+describe select into SQLDA1;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (identifier)))
+
+==================
+DISCONNECT database
+==================
+
+disconnect current;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)))
+
+==================
+DROP object
+==================
+
+drop table T;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)))
+
+==================
+EXECUTE dynamic statement
+==================
+
+execute S1 using :input;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (keyword)
+    (host_variable)))
+
+==================
+FREE locator
+==================
+
+free locator :locator;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (host_variable)))
+
+==================
+GRANT privilege
+==================
+
+grant select on table T to USER1;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (number)))
+
+==================
+HOLD locator
+==================
+
+hold locator :locator;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (host_variable)))
+
+==================
+INCLUDE declaration
+==================
+
+include SQLCA;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)))
+
+==================
+LABEL object
+==================
+
+label on table T is 'table label';
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (string)))
+
+==================
+LOCK table
+==================
+
+lock table T in exclusive mode;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (keyword)))
+
+==================
+OPEN cursor
+==================
+
+open C1 using :input;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (keyword)
+    (host_variable)))
+
+==================
+REFRESH table
+==================
+
+refresh table SUMMARY_TABLE;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (identifier)))
+
+==================
+RELEASE savepoint
+==================
+
+release savepoint S1;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)))
+
+==================
+RENAME object
+==================
+
+rename table OLD_T to NEW_T;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))
+
+==================
+REVOKE privilege
+==================
+
+revoke select on table T from USER1;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (number)))
+
+==================
+ROLLBACK transaction
+==================
+
+rollback to savepoint S1;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (identifier)))
+
+==================
+SAVEPOINT transaction
+==================
+
+savepoint S1 on rollback retain cursors;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))
+
+==================
+TRANSFER ownership
+==================
+
+transfer ownership of table T to USER1;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (number)))
+
+==================
+TRUNCATE table
+==================
+
+truncate table T immediate;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (keyword)))
+
+==================
+UPDATE rows
+==================
+
+update T set VALUE = :value where ID = :id;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (operator)
+    (host_variable)
+    (keyword)
+    (keyword)
+    (operator)
+    (host_variable)))
+
+==================
+VALUES expression
+==================
+
+values current date into :today;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (host_variable)))
+
+==================
+WHENEVER condition
+==================
+
+whenever sqlerror go to SQL_ERROR;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (identifier)))

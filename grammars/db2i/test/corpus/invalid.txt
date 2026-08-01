@@ -1,0 +1,47 @@
+==================
+Unclosed parenthesized expression
+==================
+
+select coalesce(balance, 0 from accounts;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (parenthesized_expression
+      (identifier)
+      (punctuation)
+      (number)
+      (keyword)
+      (identifier)
+      (MISSING ")"))))
+
+==================
+Missing statement keyword
+==================
+
+customer_id = 42;
+
+---
+
+(source_file
+  (ERROR
+    (identifier)
+    (operator)
+    (number)))
+
+==================
+Unterminated string
+==================
+
+select 'unfinished from SYSIBM/SYSDUMMY1;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword))
+  (ERROR
+    (UNEXPECTED '\0')))

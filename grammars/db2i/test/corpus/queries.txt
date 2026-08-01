@@ -1,0 +1,251 @@
+==================
+Recursive common table expression
+==================
+
+with recursive hierarchy(id, parent_id, depth) as (
+  select id, parent_id, 1 from nodes where parent_id is null
+  union all
+  select n.id, n.parent_id, h.depth + 1
+    from nodes n join hierarchy h on n.parent_id = h.id
+)
+select * from hierarchy;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (identifier)
+    (parenthesized_expression
+      (keyword)
+      (punctuation)
+      (identifier)
+      (punctuation)
+      (identifier))
+    (keyword)
+    (parenthesized_expression
+      (keyword)
+      (keyword)
+      (punctuation)
+      (identifier)
+      (punctuation)
+      (number)
+      (keyword)
+      (identifier)
+      (keyword)
+      (identifier)
+      (keyword)
+      (keyword)
+      (keyword)
+      (keyword)
+      (keyword)
+      (identifier)
+      (punctuation)
+      (keyword)
+      (punctuation)
+      (identifier)
+      (punctuation)
+      (identifier)
+      (punctuation)
+      (identifier)
+      (punctuation)
+      (identifier)
+      (operator)
+      (number)
+      (keyword)
+      (identifier)
+      (identifier)
+      (keyword)
+      (identifier)
+      (identifier)
+      (keyword)
+      (identifier)
+      (punctuation)
+      (identifier)
+      (operator)
+      (identifier)
+      (punctuation)
+      (keyword))
+    (keyword)
+    (operator)
+    (keyword)
+    (identifier)))
+
+==================
+Window function and CASE
+==================
+
+select customer,
+       case when balance < 0 then 'DUE' else 'OK' end as state,
+       row_number() over (partition by region order by balance desc) as position
+  from accounts;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (punctuation)
+    (keyword)
+    (keyword)
+    (identifier)
+    (operator)
+    (number)
+    (keyword)
+    (string)
+    (keyword)
+    (string)
+    (keyword)
+    (keyword)
+    (identifier)
+    (punctuation)
+    (keyword)
+    (parenthesized_expression)
+    (keyword)
+    (parenthesized_expression
+      (keyword)
+      (keyword)
+      (identifier)
+      (keyword)
+      (keyword)
+      (identifier)
+      (keyword))
+    (keyword)
+    (keyword)
+    (keyword)
+    (identifier)))
+
+==================
+Grouping sets
+==================
+
+select region, department, sum(amount)
+  from sales
+ group by grouping sets ((region, department), (region), ());
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (punctuation)
+    (identifier)
+    (punctuation)
+    (identifier)
+    (parenthesized_expression
+      (identifier))
+    (keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)
+    (parenthesized_expression
+      (parenthesized_expression
+        (identifier)
+        (punctuation)
+        (identifier))
+      (punctuation)
+      (parenthesized_expression
+        (identifier))
+      (punctuation)
+      (parenthesized_expression))))
+
+==================
+Correlated subquery
+==================
+
+select c.customer_id
+  from customers c
+ where exists (select 1 from orders o where o.customer_id = c.customer_id);
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (punctuation)
+    (identifier)
+    (keyword)
+    (identifier)
+    (identifier)
+    (keyword)
+    (keyword)
+    (parenthesized_expression
+      (keyword)
+      (number)
+      (keyword)
+      (keyword)
+      (identifier)
+      (identifier)
+      (keyword)
+      (identifier)
+      (punctuation)
+      (identifier)
+      (operator)
+      (identifier)
+      (punctuation)
+      (identifier))))
+
+==================
+MERGE statement
+==================
+
+merge into target t using source s on t.id = s.id
+when matched then update set value = s.value
+when not matched then insert (id, value) values (s.id, s.value);
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (identifier)
+    (keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)
+    (punctuation)
+    (keyword)
+    (operator)
+    (identifier)
+    (punctuation)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (operator)
+    (identifier)
+    (punctuation)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (parenthesized_expression
+      (keyword)
+      (punctuation)
+      (keyword))
+    (keyword)
+    (parenthesized_expression
+      (identifier)
+      (punctuation)
+      (keyword)
+      (punctuation)
+      (identifier)
+      (punctuation)
+      (keyword))))

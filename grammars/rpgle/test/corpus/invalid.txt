@@ -1,0 +1,19 @@
+==================
+Missing block terminator
+==================
+
+**FREE
+if ready;
+  return;
+
+---
+
+(source_file
+  (fully_free_marker)
+  (ERROR
+    (keyword)
+    (expression
+      (identifier))
+    (operation_statement
+      opcode: (opcode
+        (identifier)))))

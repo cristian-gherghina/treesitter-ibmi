@@ -1,0 +1,42 @@
+==================
+Fixed and free lines alternate
+==================
+
+     DCOUNT            S             10I 0
+       dcl-s name char(30);
+     C                   EVAL      COUNT = 0
+       count += 1;
+
+---
+
+(source_file
+  (fixed_definition_specification
+    (fixed_definition_name)
+    (fixed_external_description)
+    (fixed_data_structure_type)
+    (fixed_definition_type)
+    (fixed_from_position)
+    (fixed_to_position)
+    (fixed_internal_data_type)
+    (fixed_decimal_positions))
+  (declaration_statement
+    (named_declaration
+      (declaration_keyword)
+      (identifier)
+      (expression
+        (call_expression
+          (identifier)
+          (argument_list
+            (expression
+              (number)))))))
+  (fixed_calculation_specification
+    (fixed_control_level)
+    (fixed_conditioning_indicators)
+    (fixed_factor_1)
+    (fixed_operation)
+    (fixed_extended_factor_2))
+  (assignment_statement
+    (identifier)
+    (assignment_operator)
+    (expression
+      (number))))

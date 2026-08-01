@@ -3,6 +3,8 @@
 Tree-sitter grammars for IBM i languages: RPGLE, RPG/400, CL, CMD, DDS, ILE
 COBOL, MI, binder language, and UIM panel groups.
 
+Converted based on Textmate grammars in https://github.com/barrettotte/vscode-ibmi-languages
+
 ## Testing in Neovim
 
 For a quick isolated view using a temporary parser and a clean Neovim config:
@@ -73,6 +75,38 @@ folding and highlighting:
 ```bash
 npm run demo:nvim:pnlgrp
 npm run demo:nvim:pnlgrp -- fixtures/pnlgrp/help.pnlgrp
+```
+
+Fully free-form ILE RPG sources can be previewed with:
+
+```bash
+npm run demo:nvim:rpgle
+npm run demo:nvim:rpgle -- fixtures/rpgle/fully-free/calculation.rpgle
+```
+
+The same isolated Neovim setup recognizes fixed-form H/F/D/I/C/O/P
+specifications by their column-6 form type:
+
+```bash
+npm run demo:nvim:rpgle -- fixtures/rpgle/fixed/program.rpgle
+```
+
+SQLRPGLE files expose both free `EXEC SQL` statements and fixed
+`C/EXEC SQL`...`C/END-EXEC` blocks as `ibmi_db2i_sql` injections. The Db2 for i
+parser ships in this repository, including IBM i host variables, system naming,
+special values, array syntax, 506 IBM i 7.5 reserved words, and the statement
+forms exercised by the SQLRPGLE catalogue. Its tests combine 56 focused syntax
+trees—including every supported statement family and malformed input—with 301
+statements extracted from the SQLRPGLE fixtures.
+
+```bash
+npm run demo:nvim:rpgle -- fixtures/rpgle/fully-free/program.sqlrpgle
+```
+
+The Db2 for i parser can also be previewed directly:
+
+```bash
+npm run demo:nvim:db2i
 ```
 
 ## IBM language references

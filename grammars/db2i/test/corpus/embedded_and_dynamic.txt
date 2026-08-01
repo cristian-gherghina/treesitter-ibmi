@@ -1,0 +1,99 @@
+==================
+Host structure and indicator variable
+==================
+
+select name, balance into :customer.name, :customer.balance :balanceNull
+  from customers where id = :customer.id;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (punctuation)
+    (identifier)
+    (keyword)
+    (host_variable)
+    (punctuation)
+    (host_variable)
+    (host_variable)
+    (keyword)
+    (identifier)
+    (keyword)
+    (keyword)
+    (operator)
+    (host_variable)))
+
+==================
+Cursor with multi-row fetch
+==================
+
+fetch NEXT from customerCursor for 100 rows into :customerRows;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (keyword)
+    (identifier)
+    (keyword)
+    (number)
+    (keyword)
+    (keyword)
+    (host_variable)))
+
+==================
+Dynamic SQL lifecycle
+==================
+
+prepare dynamicStatement from :statementText;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (host_variable)))
+
+==================
+Diagnostics
+==================
+
+get diagnostics :rowsChanged = row_count;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (host_variable)
+    (operator)
+    (identifier)))
+
+==================
+Result-set locator
+==================
+
+associate result set locators (:resultLocator) with procedure CUSTOMER_REPORT;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (keyword)
+    (keyword)
+    (identifier)
+    (parenthesized_expression
+      (host_variable))
+    (keyword)
+    (keyword)
+    (identifier)))

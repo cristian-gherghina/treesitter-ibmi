@@ -1,0 +1,124 @@
+==================
+System naming and special values
+==================
+
+select * from MYLIB/ORDERS where STATUS = *ALL;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (operator)
+    (keyword)
+    (identifier)
+    (operator)
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)
+    (operator)
+    (special_value)))
+
+==================
+SET OPTION for IBM i compilation
+==================
+
+set option naming = *SYS, commit = *CHG, closqlcsr = *ENDMOD;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (operator)
+    (special_value)
+    (punctuation)
+    (keyword)
+    (operator)
+    (special_value)
+    (punctuation)
+    (identifier)
+    (operator)
+    (special_value)))
+
+==================
+Identity override
+==================
+
+insert into MYLIB/AUDIT values (42, current timestamp)
+  overriding system value;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (operator)
+    (identifier)
+    (keyword)
+    (parenthesized_expression
+      (number)
+      (punctuation)
+      (keyword)
+      (keyword))
+    (keyword)
+    (identifier)
+    (keyword)))
+
+==================
+Member alias
+==================
+
+create alias MYLIB/OLDORDERS for MYLIB/ORDERS(DECEMBER);
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (operator)
+    (keyword)
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)
+    (operator)
+    (keyword)
+    (identifier)
+    (parenthesized_expression
+      (identifier))))
+
+==================
+IBM i service table function
+==================
+
+select job_name, cpu_time
+  from table(QSYS2/ACTIVE_JOB_INFO(DETAILED_INFO => 'ALL')) jobs;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (punctuation)
+    (identifier)
+    (keyword)
+    (keyword)
+    (parenthesized_expression
+      (identifier)
+      (operator)
+      (identifier)
+      (parenthesized_expression
+        (identifier)
+        (operator)
+        (operator)
+        (string)))
+    (identifier)))

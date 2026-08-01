@@ -1,0 +1,148 @@
+==================
+JSON and XML functions
+==================
+
+select json_value(payload, '$.customer'),
+       xmlserialize(xmlparse(document xml_text) as varchar(1024))
+  from documents;
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (parenthesized_expression
+      (identifier)
+      (punctuation)
+      (string))
+    (punctuation)
+    (keyword)
+    (parenthesized_expression
+      (keyword)
+      (parenthesized_expression
+        (keyword)
+        (identifier))
+      (keyword)
+      (identifier)
+      (parenthesized_expression
+        (number)))
+    (keyword)
+    (keyword)
+    (identifier)))
+
+==================
+Arrays and table function
+==================
+
+select values_array[1], t.item
+  from table(unnest(values_array)) as t(item);
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (punctuation)
+    (number)
+    (punctuation)
+    (punctuation)
+    (identifier)
+    (punctuation)
+    (identifier)
+    (keyword)
+    (keyword)
+    (parenthesized_expression
+      (keyword)
+      (parenthesized_expression
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier)
+    (parenthesized_expression
+      (identifier))))
+
+==================
+LOB and temporal types
+==================
+
+create table archive (
+  id bigint not null,
+  body clob(2M),
+  binary_data blob(16M),
+  created_at timestamp with time zone
+);
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (keyword)
+    (identifier)
+    (parenthesized_expression
+      (keyword)
+      (identifier)
+      (keyword)
+      (keyword)
+      (punctuation)
+      (identifier)
+      (identifier)
+      (parenthesized_expression
+        (number)
+        (identifier))
+      (punctuation)
+      (keyword)
+      (identifier)
+      (identifier)
+      (parenthesized_expression
+        (number)
+        (identifier))
+      (punctuation)
+      (keyword)
+      (identifier)
+      (keyword)
+      (keyword)
+      (keyword)
+      (keyword))))
+
+==================
+Quoted names and escaped strings
+==================
+
+select "Order", 'customer''s order', X'F1F2F3'
+  from "Order History";
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (quoted_identifier)
+    (punctuation)
+    (string)
+    (punctuation)
+    (hex_string)
+    (keyword)
+    (quoted_identifier)))
+
+==================
+Parameter markers and numeric forms
+==================
+
+values (?, -12.50, 6.022E+23);
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (parenthesized_expression
+      (parameter_marker)
+      (punctuation)
+      (operator)
+      (number)
+      (punctuation)
+      (number))))

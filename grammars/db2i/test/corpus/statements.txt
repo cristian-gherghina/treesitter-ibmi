@@ -1,0 +1,38 @@
+==================
+Db2 for i expressions and host variables
+==================
+
+select coalesce(cusbal, 0), current timestamp
+  into :custRow.balance, :nullInd
+  from mylib/custmast
+ where cusnbr = ? and status <> 'X';
+
+---
+
+(source_file
+  (statement
+    (statement_keyword)
+    (identifier)
+    (parenthesized_expression
+      (identifier)
+      (punctuation)
+      (number))
+    (punctuation)
+    (keyword)
+    (keyword)
+    (keyword)
+    (host_variable)
+    (punctuation)
+    (host_variable)
+    (keyword)
+    (identifier)
+    (operator)
+    (identifier)
+    (keyword)
+    (identifier)
+    (operator)
+    (parameter_marker)
+    (keyword)
+    (identifier)
+    (operator)
+    (string)))

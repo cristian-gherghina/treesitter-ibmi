@@ -1,0 +1,28 @@
+==================
+Embedded SQL statement
+==================
+
+**FREE
+exec sql
+  select name into :customer
+    from customers
+   where number = :customerNumber;
+exec sql select '-- not a comment' from sysibm.sysdummy1; // RPG comment
+
+---
+
+(source_file
+  (fully_free_marker)
+  (embedded_sql_statement
+    exec: (keyword)
+    language: (keyword)
+    body: (sql_body
+      (sql_text)))
+  (embedded_sql_statement
+    exec: (keyword)
+    language: (keyword)
+    body: (sql_body
+      (sql_text)
+      (sql_string)
+      (sql_text)))
+  (comment))

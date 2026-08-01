@@ -1,0 +1,63 @@
+==================
+Nested control flow
+==================
+
+**FREE
+if qty > 0;
+  dow not %eof(ORDERS);
+    read ORDERS;
+  enddo;
+elseif qty = 0;
+  return;
+else;
+  leave;
+endif;
+
+---
+
+(source_file
+  (fully_free_marker)
+  (if_statement
+    (keyword)
+    (expression
+      (binary_expression
+        (expression
+          (identifier))
+        (operator)
+        (expression
+          (number))))
+    (do_statement
+      (keyword)
+      (expression
+        (unary_expression
+          (operator)
+          (expression
+            (call_expression
+              (builtin_name)
+              (argument_list
+                (expression
+                  (identifier)))))))
+      (operation_statement
+        (opcode
+          (identifier))
+        (expression
+          (identifier)))
+      (keyword))
+    (elseif_clause
+      (keyword)
+      (expression
+        (binary_expression
+          (expression
+            (identifier))
+          (operator)
+          (expression
+            (number))))
+      (operation_statement
+        (opcode
+          (identifier))))
+    (else_clause
+      (keyword)
+      (operation_statement
+        (opcode
+          (identifier))))
+    (keyword)))
