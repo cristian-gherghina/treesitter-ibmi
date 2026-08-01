@@ -3596,6 +3596,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "known_builtin_name"
+        },
+        {
+          "type": "SYMBOL",
           "name": "builtin_name"
         },
         {
@@ -3968,6 +3972,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "known_builtin_name"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "builtin_name"
                 },
                 {
@@ -4084,7 +4092,7 @@
         }
       ]
     },
-    "builtin_name": {
+    "known_builtin_name": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
@@ -4521,6 +4529,17 @@
               "value": "%[Yy][Ee][Aa][Rr][Ss]"
             }
           ]
+        }
+      }
+    },
+    "builtin_name": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "%[A-Za-z][A-Za-z0-9_]*"
         }
       }
     },

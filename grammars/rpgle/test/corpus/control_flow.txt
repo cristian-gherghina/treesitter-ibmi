@@ -33,7 +33,7 @@ endif;
           (operator)
           (expression
             (call_expression
-              (builtin_name)
+              (known_builtin_name)
               (argument_list
                 (expression
                   (identifier)))))))

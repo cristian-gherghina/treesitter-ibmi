@@ -595,6 +595,7 @@ module.exports = grammar({
         $.call_expression,
         $.member_expression,
         $.parenthesized_expression,
+        $.known_builtin_name,
         $.builtin_name,
         $.special_value,
         $.string,
@@ -648,7 +649,7 @@ module.exports = grammar({
       prec(7, seq(field("operator", alias(choice(caseInsensitive("NOT"), "+", "-"), $.operator)), field("argument", $.expression))),
 
     call_expression: ($) =>
-      prec(9, seq(field("function", choice($.identifier, $.builtin_name, $.special_value, $.member_expression)), field("arguments", $.argument_list))),
+      prec(9, seq(field("function", choice($.identifier, $.known_builtin_name, $.builtin_name, $.special_value, $.member_expression)), field("arguments", $.argument_list))),
 
     member_expression: ($) =>
       prec.left(10, seq(field("object", $.expression), ".", field("member", $.identifier))),
@@ -657,7 +658,10 @@ module.exports = grammar({
 
     argument_list: ($) => seq("(", optional(seq($.expression, repeat(seq(":", $.expression)))), ")"),
 
-    builtin_name: () => token(prec(2, choice(...BUILTINS.map((name) => caseInsensitive(`%${name}`))))),
+    known_builtin_name: () =>
+      token(prec(2, choice(...BUILTINS.map((name) => caseInsensitive(`%${name}`))))),
+
+    builtin_name: () => token(prec(1, /%[A-Za-z][A-Za-z0-9_]*/)),
 
     _assignable: ($) => choice($.identifier, $.special_value, $.call_expression, $.member_expression),
 

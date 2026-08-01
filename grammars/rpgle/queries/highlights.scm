@@ -23,7 +23,8 @@
   [exec: (keyword) language: (keyword)] @keyword)
 (declaration_keyword) @keyword
 (opcode (identifier) @function)
-(builtin_name) @function.builtin
+(known_builtin_name) @function.builtin
+(builtin_name) @function
 
 (procedure_start name: (identifier) @function)
 (prototype_start name: (_) @function)

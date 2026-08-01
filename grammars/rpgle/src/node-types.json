@@ -145,6 +145,10 @@
             "named": true
           },
           {
+            "type": "known_builtin_name",
+            "named": true
+          },
+          {
             "type": "member_expression",
             "named": true
           },
@@ -907,6 +911,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "known_builtin_name",
           "named": true
         },
         {
@@ -3656,6 +3664,10 @@
   },
   {
     "type": "keyword",
+    "named": true
+  },
+  {
+    "type": "known_builtin_name",
     "named": true
   },
   {

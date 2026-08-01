@@ -6,6 +6,7 @@ Expressions and calls
 total = order.lines(index).amount * %abs(rate + 1);
 callp calculate(total : *on);
 calculate(total : *off);
+future = %futurebif(total : *newconstant);
 
 ---
 
@@ -31,7 +32,7 @@ calculate(total : *off);
         (operator)
         (expression
           (call_expression
-            (builtin_name)
+            (known_builtin_name)
             (argument_list
               (expression
                 (binary_expression
@@ -58,4 +59,15 @@ calculate(total : *off);
         (expression
           (identifier))
         (expression
-          (special_value))))))
+          (special_value)))))
+  (assignment_statement
+    (identifier)
+    (assignment_operator)
+    (expression
+      (call_expression
+        (builtin_name)
+        (argument_list
+          (expression
+            (identifier))
+          (expression
+            (special_value)))))))
