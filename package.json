@@ -2,6 +2,7 @@
   "name": "treesitter-ibmi",
   "private": true,
   "scripts": {
+    "build:release": "node scripts/build-release-artifacts.mjs",
     "generate:dds-pf": "tree-sitter generate --abi 15 --output grammars/dds/pf/src grammars/dds/pf/grammar.js",
     "generate:dds-lf": "tree-sitter generate --abi 15 --output grammars/dds/lf/src grammars/dds/lf/grammar.js",
     "generate:dds-icff": "tree-sitter generate --abi 15 --output grammars/dds/icff/src grammars/dds/icff/grammar.js",

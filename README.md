@@ -5,6 +5,23 @@ COBOL, MI, binder language, and UIM panel groups.
 
 Converted based on Textmate grammars in https://github.com/barrettotte/vscode-ibmi-languages
 
+## Releases
+
+Each release contains one C-source archive per parser, a combined archive, and
+`SHA256SUMS`. The archives contain generated parser/scanner sources, C headers,
+queries, a license, and standalone Tree-sitter metadata; no package registry or
+Node binding is involved.
+
+Create and push a semantic-version tag to publish a release:
+
+```bash
+git tag -a v0.1.0 -m "v0.1.0"
+git push origin v0.1.0
+```
+
+To inspect the exact artifacts locally before tagging, run
+`npm run build:release -- v0.1.0`. Output is written to `dist/`.
+
 ## Testing in Neovim
 
 For a quick isolated view using a temporary parser and a clean Neovim config:
