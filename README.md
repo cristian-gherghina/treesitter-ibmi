@@ -119,6 +119,18 @@ npm run demo:nvim:cobol
 npm run demo:nvim:cobol -- fixtures/cobol/embedded-sql.sqlcblle
 ```
 
+RPG/400, RPG III, and SQLRPG reference-format sources can be previewed with:
+
+```bash
+npm run demo:nvim:rpg400
+npm run demo:nvim:rpg400 -- fixtures/rpg/legacy-38.rpg38
+```
+
+The RPG/400 scanner exposes all 153 positional fields generated from
+`data/rpg3-cols.json`. Its fixture gate covers all 12 source files, three
+column-boundary mutations, and 45 SQL statements parsed separately with the
+`ibmi_db2i_sql_rpg400` host variant.
+
 ## IBM language references
 
 | Language | Authoritative reference |

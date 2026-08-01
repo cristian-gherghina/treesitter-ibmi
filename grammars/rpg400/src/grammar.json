@@ -1,0 +1,1614 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "ibmi_rpg400",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "comment"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_ignored_tail"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "compiler_directive"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_ignored_tail"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "embedded_sql_statement"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "control_specification"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "file_specification"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "extension_specification"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "line_counter_specification"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "input_specification"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "calculation_specification"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "output_specification"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "compile_time_data"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_ignored_tail"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "control_specification": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "h_form_type"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "h_reserved"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_debug"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_reserved_2"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_currency_symbol"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_date_format"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_date_edit"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_decimal_notation"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_reserved_3"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_alternate_collating_sequence"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_reserved_4"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_sign_handling"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_forms_alignment"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_reserved_5"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_file_translation"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_reserved_6"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_transparency_check"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_reserved_7"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "h_program_identification"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ignored_tail"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "file_specification": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "f_form_type"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "f_file_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_file_type"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_file_designation"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_end_of_file"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_sequence"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_file_format"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_reserved"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_record_length"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_limits_processing"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_length_of_key_or_record_address"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_record_address_type"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_file_organization"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_overflow_indicator"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_key_field_starting_location"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_extension_code"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_device"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_reserved_2"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_continuation_lines"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_routine"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_reserved_3"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_file_addition"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_reserved_4"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_file_condition"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_reserved_5"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "f_comments"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ignored_tail"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "extension_specification": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "e_form_type"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "e_reserved"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_from_file_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_to_file_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_array_or_table_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_entries_per_record"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_entries_per_array_or_table"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_length_of_entry"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_data_format"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_decimal_positions"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_sequence"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_second_array_description"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_comments"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "e_comments_2"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ignored_tail"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "line_counter_specification": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "l_form_type"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "l_file_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "l_lines_per_page"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "l_form_length"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "l_overflow_line_number"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "l_overflow_line"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "l_reserved"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "l_comments"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ignored_tail"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "input_specification": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "i_form_type"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "i_file_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_logical_relationship"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_sequence"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_number"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_option"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_record_identifying_indicator_or"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_record_identification_codes"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_data_format"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_field_location"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_decimal_positions"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_field_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_control_level"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_matching_fields"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_field_record_relation"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_field_indicators"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_2"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_comments"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_record_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_3"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_record_identifying_indicator"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_record_identification_code"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_4"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_5"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_external_field_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_6"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_7"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_data_structure_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_8"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_external_description"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_external_file_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_9"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_data_structure_occurrences"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_length"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_10"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_11"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_initialization_option"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_12"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_initialization_value"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_13"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_internal_data_format"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_14"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_constant"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_data_type"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_15"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_constant_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "i_reserved_16"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ignored_tail"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "calculation_specification": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "c_form_type"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "c_control_level"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_indicators"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_factor_1"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_operation"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_factor_2"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_result_field"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_field_length"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_decimal_positions"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_operation_extender"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_resulting_indicators"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_comments"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "c_comments_2"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ignored_tail"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "output_specification": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "o_form_type"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "o_file_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_logical_relationship"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_type"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_record_addition_deletion"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_fetch_overflow_release"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_space_and_skip"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_space_before"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_space_after"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_skip_before"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_skip_after"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_output_indicators"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_excpt_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_field_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_edit_codes"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_blank_after"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_end_position"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_data_format"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_constant_or_edit_word"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_reserved"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_comments"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_record_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_release"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_record_addition"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "o_fetch_overflow_space_skip"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ignored_tail"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "embedded_sql_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "sql_start"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ignored_tail"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "sql_continuation"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_ignored_tail"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sql_end"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_ignored_tail"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "_fixed_whitespace"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "compiler_directive"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "sql_start"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "sql_continuation"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "sql_end"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "compile_time_data"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_ignored_tail"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_fixed_whitespace"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_form_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_reserved"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_debug"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_reserved_2"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_currency_symbol"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_date_format"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_date_edit"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_decimal_notation"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_reserved_3"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_alternate_collating_sequence"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_reserved_4"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_sign_handling"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_forms_alignment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_reserved_5"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_file_translation"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_reserved_6"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_transparency_check"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_reserved_7"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "h_program_identification"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_form_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_file_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_file_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_file_designation"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_end_of_file"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_sequence"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_file_format"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_reserved"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_record_length"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_limits_processing"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_length_of_key_or_record_address"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_record_address_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_file_organization"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_overflow_indicator"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_key_field_starting_location"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_extension_code"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_device"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_reserved_2"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_continuation_lines"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_routine"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_reserved_3"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_file_addition"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_reserved_4"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_file_condition"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_reserved_5"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "f_comments"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_form_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_reserved"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_from_file_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_to_file_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_array_or_table_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_entries_per_record"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_entries_per_array_or_table"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_length_of_entry"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_data_format"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_decimal_positions"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_sequence"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_second_array_description"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_comments"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "e_comments_2"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "l_form_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "l_file_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "l_lines_per_page"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "l_form_length"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "l_overflow_line_number"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "l_overflow_line"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "l_reserved"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "l_comments"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_form_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_file_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_logical_relationship"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_sequence"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_number"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_option"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_record_identifying_indicator_or"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_record_identification_codes"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_data_format"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_field_location"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_decimal_positions"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_field_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_control_level"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_matching_fields"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_field_record_relation"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_field_indicators"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_2"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_comments"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_record_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_3"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_record_identifying_indicator"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_record_identification_code"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_4"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_5"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_external_field_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_6"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_7"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_data_structure_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_8"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_external_description"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_external_file_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_9"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_data_structure_occurrences"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_length"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_10"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_11"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_initialization_option"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_12"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_initialization_value"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_13"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_internal_data_format"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_14"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_constant"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_data_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_15"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_constant_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "i_reserved_16"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_form_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_control_level"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_indicators"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_factor_1"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_operation"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_factor_2"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_result_field"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_field_length"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_decimal_positions"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_operation_extender"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_resulting_indicators"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_comments"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "c_comments_2"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_form_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_file_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_logical_relationship"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_type"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_record_addition_deletion"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_fetch_overflow_release"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_space_and_skip"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_space_before"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_space_after"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_skip_before"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_skip_after"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_output_indicators"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_excpt_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_field_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_edit_codes"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_blank_after"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_end_position"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_data_format"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_constant_or_edit_word"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_reserved"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_comments"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_record_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_release"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_record_addition"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "o_fetch_overflow_space_skip"
+    }
+  ],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}

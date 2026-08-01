@@ -1,0 +1,70 @@
+==================
+Short records and numbered comments
+==================
+
+     H
+01020C*
+
+---
+
+(source_file
+  (control_specification
+    (h_form_type))
+  (comment))
+
+==================
+Columns after 80 are ignored
+==================
+
+08010C                     SETON                         LR                  tailignored
+
+---
+
+(source_file
+  (calculation_specification
+    (c_form_type)
+    (c_control_level)
+    (c_indicators)
+    (c_factor_1)
+    (c_operation)
+    (c_factor_2)
+    (c_result_field)
+    (c_field_length)
+    (c_decimal_positions)
+    (c_operation_extender)
+    (c_resulting_indicators)
+    (c_comments)
+    (c_comments_2)))
+
+==================
+Compile-time table records
+==================
+
+**    TAXCDE and TAXRAT
+A1000625
+B2000750
+
+---
+
+(source_file
+  (compile_time_data)
+  (compile_time_data)
+  (compile_time_data))
+
+==================
+Numbered embedded SQL
+==================
+
+09010C/EXEC SQL SELECT CUSNAM
+09020C+ INTO :CUSTNM
+09030C+ FROM CUSTMAST
+09040C/END-EXEC
+
+---
+
+(source_file
+  (embedded_sql_statement
+    (sql_start)
+    (sql_continuation)
+    (sql_continuation)
+    (sql_end)))

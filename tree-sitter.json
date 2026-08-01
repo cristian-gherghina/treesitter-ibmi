@@ -125,6 +125,23 @@
       "path": "grammars/db2i-cobol",
       "file-types": [],
       "highlights": "grammars/db2i-cobol/queries/highlights.scm"
+    },
+    {
+      "name": "ibmi_rpg400",
+      "camelcase": "IbmiRpg400",
+      "scope": "source.ibmi.rpg400",
+      "path": "grammars/rpg400",
+      "file-types": ["rpg", "rpg38", "sqlrpg"],
+      "highlights": "grammars/rpg400/queries/highlights.scm",
+      "injections": "grammars/rpg400/queries/injections.scm"
+    },
+    {
+      "name": "ibmi_db2i_sql_rpg400",
+      "camelcase": "IbmiDb2iSqlRpg400",
+      "scope": "source.ibmi.db2i.sql.rpg400",
+      "path": "grammars/db2i-rpg400",
+      "file-types": [],
+      "highlights": "grammars/db2i-rpg400/queries/highlights.scm"
     }
   ],
   "metadata": {

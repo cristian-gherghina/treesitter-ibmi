@@ -1,0 +1,167 @@
+==================
+H control fields
+==================
+
+01010H        1  $M/D    S              1 F             1                 PAYROL
+
+---
+
+(source_file
+  (control_specification
+    (h_form_type)
+    (h_reserved)
+    (h_debug)
+    (h_reserved_2)
+    (h_currency_symbol)
+    (h_date_format)
+    (h_date_edit)
+    (h_decimal_notation)
+    (h_reserved_3)
+    (h_alternate_collating_sequence)
+    (h_reserved_4)
+    (h_sign_handling)
+    (h_forms_alignment)
+    (h_reserved_5)
+    (h_file_translation)
+    (h_reserved_6)
+    (h_transparency_check)
+    (h_reserved_7)
+    (h_program_identification)))
+
+==================
+F file fields
+==================
+
+02010FORDHDR  IF  E           K        DISK
+
+---
+
+(source_file
+  (file_specification
+    (f_form_type)
+    (f_file_name)
+    (f_file_type)
+    (f_file_designation)
+    (f_end_of_file)
+    (f_sequence)
+    (f_file_format)
+    (f_reserved)
+    (f_record_length)
+    (f_limits_processing)
+    (f_length_of_key_or_record_address)
+    (f_record_address_type)
+    (f_file_organization)
+    (f_overflow_indicator)
+    (f_key_field_starting_location)
+    (f_extension_code)
+    (f_device)))
+
+==================
+E extension fields
+==================
+
+03010E                    TAXCDE  1   5  3  ATAXRAT  5 4
+
+---
+
+(source_file
+  (extension_specification
+    (e_form_type)
+    (e_reserved)
+    (e_from_file_name)
+    (e_to_file_name)
+    (e_array_or_table_name)
+    (e_entries_per_record)
+    (e_entries_per_array_or_table)
+    (e_length_of_entry)
+    (e_data_format)
+    (e_decimal_positions)
+    (e_sequence)
+    (e_second_array_description)))
+
+==================
+L line counter fields
+==================
+
+04010LQSYSPRT  66FL 60OL
+
+---
+
+(source_file
+  (line_counter_specification
+    (l_form_type)
+    (l_file_name)
+    (l_lines_per_page)
+    (l_form_length)
+    (l_overflow_line_number)
+    (l_overflow_line)))
+
+==================
+I input fields
+==================
+
+05010I              CUSTNBR     C                   CUSNO
+
+---
+
+(source_file
+  (input_specification
+    (i_form_type)
+    (i_file_name)
+    (i_sequence)
+    (i_number)
+    (i_option)
+    (i_record_identifying_indicator_or)
+    (i_record_identification_codes)
+    (i_reserved)
+    (i_data_format)
+    (i_field_location)
+    (i_decimal_positions)
+    (i_field_name)))
+
+==================
+C calculation fields
+==================
+
+06010C   01      QTY       ADD  PRICE     TOTAL   92H      202122 comment
+
+---
+
+(source_file
+  (calculation_specification
+    (c_form_type)
+    (c_control_level)
+    (c_indicators)
+    (c_factor_1)
+    (c_operation)
+    (c_factor_2)
+    (c_result_field)
+    (c_field_length)
+    (c_decimal_positions)
+    (c_operation_extender)
+    (c_resulting_indicators)
+    (c_comments)))
+
+==================
+O output fields
+==================
+
+07010O                         AMOUNT1   30 'edit word'
+
+---
+
+(source_file
+  (output_specification
+    (o_form_type)
+    (o_file_name)
+    (o_type)
+    (o_record_addition_deletion)
+    (o_skip_before)
+    (o_skip_after)
+    (o_output_indicators)
+    (o_excpt_name)
+    (o_edit_codes)
+    (o_blank_after)
+    (o_end_position)
+    (o_data_format)
+    (o_constant_or_edit_word)))

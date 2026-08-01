@@ -1,0 +1,6 @@
+     H        1   M D                                                     COLTST
+     C/EXEC SQL SELECT CUSNAM
+     C+ INTO :CUSTNM
+     C+ FROM CUSTMAST
+     C/END-EXEC
+     C                     SETON                         LR                  ignored-tail

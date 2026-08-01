@@ -20,6 +20,7 @@ case "$parser" in
   rpgle)    language="ibmi_rpgle"; grammar="rpgle"; extensions="rpgle,rpgleinc,sqlrpgle"; default_source="fixtures/rpgle/fully-free/program.rpgle" ;;
   db2i-rpgle) language="ibmi_db2i_sql_rpgle"; grammar="db2i-rpgle"; extensions="sql"; default_source="fixtures/db2i-rpgle/select.sql" ;;
   cobol)    language="ibmi_cobol"; grammar="cobol"; extensions="cblle,cbl,cbl38,sqlcbl,sqlcblle"; default_source="fixtures/cobol/program.cblle" ;;
+  rpg400)   language="ibmi_rpg400"; grammar="rpg400"; extensions="rpg,rpg38,sqlrpg"; default_source="fixtures/rpg/program.sqlrpg" ;;
   *)
     echo "Unsupported parser: $parser" >&2
     exit 2

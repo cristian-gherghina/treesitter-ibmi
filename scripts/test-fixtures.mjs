@@ -21,7 +21,7 @@ const grammar = ddsDialect
   : path.join(repoRoot, "grammars", parser?.startsWith("rpgle") ? "rpgle" : parser ?? "");
 const fixtureRoot = parser?.startsWith("rpgle")
   ? path.join(repoRoot, "fixtures", "rpgle", rpgleFixtureDirs[parser] ?? "")
-  : path.join(repoRoot, "fixtures", parser ?? "");
+  : path.join(repoRoot, "fixtures", parser === "rpg400" ? "rpg" : parser ?? "");
 const cacheRoot = path.join(repoRoot, ".cache");
 
 if (!parser || !fs.existsSync(grammar) || !fs.existsSync(fixtureRoot)) {
@@ -195,6 +195,59 @@ if (parser === "db2i-rpgle") {
     cobolSqlCount = outputs.length;
   }
 
+  let rpg400SqlCount = 0;
+  let rpg400ColumnChecks = 0;
+  if (parser === "rpg400") {
+    const outputRoot = path.join(cacheRoot, "rpg400-sql-fixtures");
+    fs.rmSync(outputRoot, { recursive: true, force: true });
+    fs.mkdirSync(outputRoot, { recursive: true });
+    const outputs = [];
+    for (const name of fixtureNames.filter((value) => value.endsWith(".sqlrpg"))) {
+      const source = fs.readFileSync(path.join(fixtureRoot, name), "utf8");
+      fixedSqlStatements(source).forEach((statement, index) => {
+        const output = path.join(outputRoot, `${name}-${index + 1}.sql`);
+        fs.writeFileSync(output, `${statement.trim()}\n`);
+        outputs.push(output);
+      });
+    }
+    run(["parse", "-p", path.join(repoRoot, "grammars", "db2i-rpg400"), ...outputs, "--quiet"]);
+    rpg400SqlCount = outputs.length;
+
+    const columnsFixture = path.join(fixtureRoot, "columns.rpg");
+    const originalTree = run(["parse", "-p", grammar, columnsFixture]);
+    if (!originalTree.includes("control_specification") || !originalTree.includes("embedded_sql_statement")) {
+      throw new Error("RPG/400 column fixture is missing expected structural nodes");
+    }
+    const columnSource = fs.readFileSync(columnsFixture, "utf8");
+    const columnLines = columnSource.split(/\r?\n/);
+    const variants = path.join(cacheRoot, "rpg400-column-checks");
+    fs.rmSync(variants, { recursive: true, force: true });
+    fs.mkdirSync(variants, { recursive: true });
+
+    const invalidFormPath = path.join(variants, "invalid-form.rpg");
+    const invalidFormLines = [...columnLines];
+    invalidFormLines[0] = `${invalidFormLines[0].slice(0, 5)}X${invalidFormLines[0].slice(6)}`;
+    fs.writeFileSync(invalidFormPath, invalidFormLines.join("\n"));
+    const invalidForm = run(["parse", "-p", grammar, invalidFormPath]);
+    if (invalidForm.includes("control_specification")) {
+      throw new Error("RPG/400 form type outside H in column 6 should not remain a control specification");
+    }
+    const invalidSqlPath = path.join(variants, "invalid-sql-marker.rpg");
+    const invalidSqlLines = [...columnLines];
+    invalidSqlLines[1] = `${invalidSqlLines[1].slice(0, 6)}X${invalidSqlLines[1].slice(7)}`;
+    fs.writeFileSync(invalidSqlPath, invalidSqlLines.join("\n"));
+    const invalidSqlMarker = run(["parse", "-p", grammar, invalidSqlPath]);
+    if (invalidSqlMarker.includes("embedded_sql_statement")) {
+      throw new Error("RPG/400 SQL slash removed from column 7 should not remain embedded SQL");
+    }
+    const tailPath = path.join(variants, "tail.rpg");
+    const tailLines = [...columnLines];
+    tailLines[5] = `${tailLines[5].padEnd(80)}X`;
+    fs.writeFileSync(tailPath, tailLines.join("\n"));
+    run(["parse", "-p", grammar, tailPath, "--quiet"]);
+    rpg400ColumnChecks = 3;
+  }
+
   // Fixed RPGLE must continue to recognize the form type specifically in column 6.
   if (parser === "rpgle-fixed") {
     const source = path.join(fixtureRoot, "control.rpgle");
@@ -214,9 +267,10 @@ if (parser === "db2i-rpgle") {
     if (missing.length > 0) throw new Error(`generated commands missing: ${missing.join(", ")}`);
     console.log(`CL fixtures: ${fixtureNames.length}; generated commands: ${commands.length}`);
   } else {
-    const labels = { bnd: "Binder", mi: "MI", cmd: "CMD", pnlgrp: "PNLGRP", cobol: "ILE COBOL/COBOL/400", rpgle: "RPGLE fully-free", "rpgle-free": "RPGLE column-limited free", "rpgle-fixed": "RPGLE fixed-form", "rpgle-mixed": "RPGLE mixed-format" };
+    const labels = { bnd: "Binder", mi: "MI", cmd: "CMD", pnlgrp: "PNLGRP", cobol: "ILE COBOL/COBOL/400", rpg400: "RPG/400 and RPG III", rpgle: "RPGLE fully-free", "rpgle-free": "RPGLE column-limited free", "rpgle-fixed": "RPGLE fixed-form", "rpgle-mixed": "RPGLE mixed-format" };
     const suffix = parser === "rpgle-fixed" ? "; column edits: 2" : "";
     const sqlSuffix = parser === "cobol" ? `; SQL statements: ${cobolSqlCount}` : "";
-    console.log(`${labels[parser] ?? parser} fixtures: ${fixtureNames.length}${suffix}${sqlSuffix}`);
+    const rpg400Suffix = parser === "rpg400" ? `; SQL statements: ${rpg400SqlCount}; column checks: ${rpg400ColumnChecks}` : "";
+    console.log(`${labels[parser] ?? parser} fixtures: ${fixtureNames.length}${suffix}${sqlSuffix}${rpg400Suffix}`);
   }
 }

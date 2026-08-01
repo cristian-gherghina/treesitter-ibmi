@@ -17,6 +17,8 @@
     "generate:db2i-rpgle": "tree-sitter generate --abi 15 --output grammars/db2i-rpgle/src grammars/db2i-rpgle/grammar.js",
     "generate:db2i-cobol": "tree-sitter generate --abi 15 --output grammars/db2i-cobol/src grammars/db2i-cobol/grammar.js",
     "generate:cobol": "tree-sitter generate --abi 15 --output grammars/cobol/src grammars/cobol/grammar.js",
+    "generate:rpg400": "node scripts/generate-rpg400-scanner.mjs && tree-sitter generate --abi 15 --output grammars/rpg400/src grammars/rpg400/grammar.js",
+    "generate:db2i-rpg400": "tree-sitter generate --abi 15 --output grammars/db2i-rpg400/src grammars/db2i-rpg400/grammar.js",
     "demo:nvim": "bash scripts/nvim.sh dds-pf",
     "demo:nvim:pf": "bash scripts/nvim.sh dds-pf",
     "demo:nvim:lf": "bash scripts/nvim.sh dds-lf",
@@ -31,6 +33,7 @@
     "demo:nvim:rpgle": "bash scripts/nvim.sh rpgle",
     "demo:nvim:db2i-rpgle": "bash scripts/nvim.sh db2i-rpgle",
     "demo:nvim:cobol": "bash scripts/nvim.sh cobol",
+    "demo:nvim:rpg400": "bash scripts/nvim.sh rpg400",
     "test:dds-pf": "tree-sitter test -p grammars/dds/pf",
     "test:dds-lf": "tree-sitter test -p grammars/dds/lf",
     "test:dds-icff": "tree-sitter test -p grammars/dds/icff",
@@ -44,8 +47,10 @@
     "test:rpgle": "tree-sitter test -p grammars/rpgle",
     "test:db2i-rpgle": "tree-sitter test -p grammars/db2i-rpgle",
     "test:cobol": "tree-sitter test -p grammars/cobol",
+    "test:rpg400": "tree-sitter test -p grammars/rpg400",
     "test:fixtures:db2i-rpgle": "node scripts/test-fixtures.mjs db2i-rpgle",
     "test:fixtures:cobol": "node scripts/test-fixtures.mjs cobol",
+    "test:fixtures:rpg400": "node scripts/test-fixtures.mjs rpg400",
     "test:fixtures:dds-pf": "node scripts/test-fixtures.mjs dds-pf",
     "test:fixtures:dds-lf": "node scripts/test-fixtures.mjs dds-lf",
     "test:fixtures:dds-icff": "node scripts/test-fixtures.mjs dds-icff",
@@ -74,8 +79,9 @@
     "test:queries:rpgle": "tree-sitter query --quiet -p grammars/rpgle grammars/rpgle/queries/highlights.scm fixtures/rpgle/fully-free/program.rpgle fixtures/rpgle/fixed/program.rpgle fixtures/rpgle/mixed/program.rpgle && tree-sitter query --quiet -p grammars/rpgle grammars/rpgle/queries/folds.scm fixtures/rpgle/fully-free/program.rpgle && tree-sitter query --quiet -p grammars/rpgle grammars/rpgle/queries/indents.scm fixtures/rpgle/fully-free/program.rpgle && tree-sitter query --quiet -p grammars/rpgle grammars/rpgle/queries/textobjects.scm fixtures/rpgle/fully-free/program.rpgle && tree-sitter query --quiet -p grammars/rpgle grammars/rpgle/queries/injections.scm fixtures/rpgle/fully-free/program.sqlrpgle fixtures/rpgle/mixed/program.sqlrpgle",
     "test:queries:db2i-rpgle": "tree-sitter query --quiet -p grammars/db2i-rpgle grammars/db2i-rpgle/queries/highlights.scm fixtures/db2i-rpgle/select.sql",
     "test:queries:cobol": "tree-sitter query --quiet -p grammars/cobol grammars/cobol/queries/highlights.scm fixtures/cobol/program.cblle && tree-sitter query --quiet -p grammars/cobol grammars/cobol/queries/folds.scm fixtures/cobol/program.cblle && tree-sitter query --quiet -p grammars/cobol grammars/cobol/queries/indents.scm fixtures/cobol/program.cblle && tree-sitter query --quiet -p grammars/cobol grammars/cobol/queries/injections.scm fixtures/cobol/embedded-sql.sqlcblle",
-    "check:generated": "npm run generate:dds && npm run generate:cl && npm run generate:bnd && npm run generate:mi && npm run generate:cmd && npm run generate:pnlgrp && npm run generate:rpgle && npm run generate:db2i-rpgle && npm run generate:db2i-cobol && npm run generate:cobol && git diff --exit-code -- grammars/dds/pf/src grammars/dds/lf/src grammars/dds/icff/src grammars/dds/dspf/src grammars/dds/prtf/src grammars/cl/src grammars/bnd/src grammars/mi/src grammars/cmd/src grammars/pnlgrp/src grammars/rpgle/src grammars/db2i-rpgle/src grammars/db2i-cobol/src grammars/cobol/src",
-    "test": "npm run test:dds-pf && npm run test:fixtures:dds-pf && npm run test:dds-lf && npm run test:fixtures:dds-lf && npm run test:dds-icff && npm run test:fixtures:dds-icff && npm run test:dds-dspf && npm run test:fixtures:dds-dspf && npm run test:dds-prtf && npm run test:fixtures:dds-prtf && npm run test:queries:dds && npm run test:cl && npm run test:fixtures:cl && npm run test:queries:cl && npm run test:bnd && npm run test:fixtures:bnd && npm run test:queries:bnd && npm run test:mi && npm run test:fixtures:mi && npm run test:queries:mi && npm run test:cmd && npm run test:fixtures:cmd && npm run test:queries:cmd && npm run test:pnlgrp && npm run test:fixtures:pnlgrp && npm run test:queries:pnlgrp && npm run test:db2i-rpgle && npm run test:fixtures:db2i-rpgle && npm run test:queries:db2i-rpgle && npm run test:rpgle && npm run test:fixtures:rpgle && npm run test:fixtures:rpgle-free && npm run test:fixtures:rpgle-fixed && npm run test:fixtures:rpgle-mixed && npm run test:queries:rpgle && npm run test:cobol && npm run test:fixtures:cobol && npm run test:queries:cobol"
+    "test:queries:rpg400": "tree-sitter query --quiet -p grammars/rpg400 grammars/rpg400/queries/highlights.scm fixtures/rpg/program.sqlrpg && tree-sitter query --quiet -p grammars/rpg400 grammars/rpg400/queries/injections.scm fixtures/rpg/program.sqlrpg",
+    "check:generated": "npm run generate:dds && npm run generate:cl && npm run generate:bnd && npm run generate:mi && npm run generate:cmd && npm run generate:pnlgrp && npm run generate:rpgle && npm run generate:db2i-rpgle && npm run generate:db2i-cobol && npm run generate:cobol && npm run generate:rpg400 && npm run generate:db2i-rpg400 && git diff --exit-code -- grammars/dds/pf/src grammars/dds/lf/src grammars/dds/icff/src grammars/dds/dspf/src grammars/dds/prtf/src grammars/cl/src grammars/bnd/src grammars/mi/src grammars/cmd/src grammars/pnlgrp/src grammars/rpgle/src grammars/db2i-rpgle/src grammars/db2i-cobol/src grammars/cobol/src grammars/rpg400/src grammars/db2i-rpg400/src",
+    "test": "npm run test:dds-pf && npm run test:fixtures:dds-pf && npm run test:dds-lf && npm run test:fixtures:dds-lf && npm run test:dds-icff && npm run test:fixtures:dds-icff && npm run test:dds-dspf && npm run test:fixtures:dds-dspf && npm run test:dds-prtf && npm run test:fixtures:dds-prtf && npm run test:queries:dds && npm run test:cl && npm run test:fixtures:cl && npm run test:queries:cl && npm run test:bnd && npm run test:fixtures:bnd && npm run test:queries:bnd && npm run test:mi && npm run test:fixtures:mi && npm run test:queries:mi && npm run test:cmd && npm run test:fixtures:cmd && npm run test:queries:cmd && npm run test:pnlgrp && npm run test:fixtures:pnlgrp && npm run test:queries:pnlgrp && npm run test:db2i-rpgle && npm run test:fixtures:db2i-rpgle && npm run test:queries:db2i-rpgle && npm run test:rpgle && npm run test:fixtures:rpgle && npm run test:fixtures:rpgle-free && npm run test:fixtures:rpgle-fixed && npm run test:fixtures:rpgle-mixed && npm run test:queries:rpgle && npm run test:cobol && npm run test:fixtures:cobol && npm run test:queries:cobol && npm run test:rpg400 && npm run test:fixtures:rpg400 && npm run test:queries:rpg400"
   },
   "devDependencies": {
     "tree-sitter-cli": "0.26.11"
