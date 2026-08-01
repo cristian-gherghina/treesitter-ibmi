@@ -1,14 +1,8 @@
 # Changelog
 
-Notable user-facing changes to this project are documented here.
-
 This project uses [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
-
 ## [0.1.0]
-
-### Added
 
 - Initial Tree-sitter parsers for ILE RPG, RPG/400, ILE COBOL, CL, CMD, MI,
   binder language, and UIM panel groups.
